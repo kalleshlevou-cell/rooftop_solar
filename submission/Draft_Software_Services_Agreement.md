@@ -60,13 +60,13 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 
 2.3 **Milestone Payment Schedule**: The Client shall remit payments to the Consultant based strictly on verified technical milestones and acceptance criteria:
 
-| Milestone | Deliverable Scope | Target Timeline | Verification & Acceptance Criteria | Amount Payable (₹) | Share |
+| Milestone | Deliverables | Target Timeline | Acceptance Evidence & Verification Criteria | Amount Payable (₹) | Share |
 |---|---|---|---|---:|---:|
-| **M1** | **Architecture, Data Schemas & Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; Express REST APIs live; dated subsidy engine passing test cases for PM Surya Ghar and Phase II schemes. | ₹1,50,000 | 25% |
-| **M2** | **Intake Form & AI OCR Verification** | End of Week 2 | Form deployed in Marathi/Hindi/English; side-by-side OCR verification and blurriness alert fully functional. | ₹1,50,000 | 25% |
-| **M3** | **Quotation Builder & Public Tracker** | End of Week 4 | Vector PDF quote generator operational; public `/track/:token` active; qualification routing verified. | ₹1,50,000 | 25% |
-| **M4** | **SLA Monitor, Nagpur Pilot, UAT & Handover** | End of Week 6 | Agreed regression test suite (`test-e2e.js`) achieves 100% pass rate on internal platform code (excluding third-party network outages); staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
-| **TOTAL** | | | **Full Platform Delivery** | **₹6,00,000** | **100%** |
+| **M1** | **Architecture, Data Schemas & Subsidy Engine** | End of Week 1 | Architecture and schema review; Express REST APIs live; dated subsidy engine passing unit tests using scheme eligibility date; DPDP masking demonstration. | ₹1,50,000 | 25% |
+| **M2** | **Lead Intake, OCR & Human Verification** | End of Week 2 | Mobile-responsive lead intake form live in EN/MR/HI; sample-bill testing (30 bills); side-by-side OCR verification with manual field correction and 0–100 image-quality warning. | ₹1,50,000 | 25% |
+| **M3** | **Qualification Engine, Sizing & Quotation Generator** | End of Week 4 | Algorithmic qualification and sizing verified against agreed synthetic test cases; Client-approved rate-card pricing active; vector PDF quote generator operational and reconciled ($Net = Gross - Subsidy$). | ₹1,50,000 | 25% |
+| **M4** | **Public Tracker, SLA Monitor, UAT & Handover** | End of Week 6 | Public customer tracking portal (`/track/:token`) active with ≥128-bit tokens and rate limiting; 8-stage pipeline with evidence-gated DBT completion; SLA dashboard; 100% pass on internal regression test suite; formal UAT acceptance sign-off; 4 hours of staff training; complete source code, documentation, and credentials handed over. | ₹1,50,000 | 25% |
+| **TOTAL** | | | **Full Platform Delivery (4 Milestones)** | **₹6,00,000** | **100%** |
 
 2.4 **Payment Terms & Late Payment Consequences**:
 1. The Client agrees to release milestone payments via electronic bank transfer (NEFT/RTGS/IMPS) within **five (5) business days** of receiving the Consultant’s milestone invoice and accompanying Certificate of Acceptance.

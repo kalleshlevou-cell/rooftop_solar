@@ -41,7 +41,7 @@
 - **Work Breakdown Structure (WBS)**: Detailed week-by-week implementation deliverables with explicit technical prerequisites and dependencies (sample bills, rate cards).
 - **Client & Contractor Responsibilities**: Clear delineation of duties (sample bills, rate cards, UAT staff).
 - **Objective Acceptance Criteria**: Standardized verification criteria for each milestone matching Agreement Clause 4.
-- **Milestone Payment Schedule**: 4 milestones of ₹1,50,000 (25% each) tied to formal technical acceptance.
+- **Milestone Payment Schedule**: 4 milestones of ₹1,50,000 (25% each) with M1 (Architecture & Subsidy), M2 (Lead Intake & OCR), M3 (Qualification, Sizing & Quotation Generator), and M4 (Public Tracker, SLA Dashboard, UAT & Handover) strictly aligned to build sequencing.
 - **Handover Deliverables**: Complete source code Git repository, schemas, API documentation, 14-day DPDP data wipe, and 4 hours of interactive recorded training (Clause 13.2).
 - **Governance**: Full RACI responsibility assignment matrix and risk management plan with day-for-day extension clauses.
 
