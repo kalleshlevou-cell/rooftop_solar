@@ -1,5 +1,11 @@
 # Company A, Nagpur — Rooftop Solar EPC Lead Qualification, Quotation & Project Tracker
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-rooftop__solar-181717?logo=github&logoColor=white)](https://github.com/kalleshlevou-cell/rooftop_solar)
+[![License: ISC](https://img.shields.io/badge/License-ISC-emerald.svg)](https://opensource.org/licenses/ISC)
+[![Node.js Version](https://img.shields.io/badge/Node.js-18%2B-brightgreen)](https://nodejs.org/)
+
+**Official Repository**: [https://github.com/kalleshlevou-cell/rooftop_solar](https://github.com/kalleshlevou-cell/rooftop_solar)
+
 An end-to-end full-stack solar ERP and customer acquisition platform purpose-built for **Company A, Nagpur**, serving residential and commercial rooftop solar clients across Vidarbha, Maharashtra (120+ installations/month, ₹30–38 crore annual revenue).
 
 ---
@@ -106,11 +112,15 @@ The platform comes pre-seeded with the exact prompt benchmark leads and active p
 
 ### Quick Start (Runs in 1 Step)
 ```bash
-# 1. Install dependencies
-npm install
-cd client && npm install && npm run build && cd ..
+# 1. Clone the repository
+git clone https://github.com/kalleshlevou-cell/rooftop_solar.git
+cd rooftop_solar
 
-# 2. Start the unified production server
+# 2. Install dependencies & build
+npm install
+npm run build
+
+# 3. Start the unified production server
 npm start
 ```
 The application will be live at: **http://localhost:5000**
