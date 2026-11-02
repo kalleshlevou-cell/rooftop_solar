@@ -115,6 +115,20 @@ async function runTests() {
   }, { systemKw: 3, testDate: '2026-11-01' });
   console.log('2026 Active PM Surya Ghar Subsidy for 3kW:', testActive.data.result.subsidyAmount, 'Rule:', testActive.data.result.ruleName);
 
+  // Test fractional capacity (2.5 kW -> ₹69,000)
+  const testFractional = await request({
+    hostname: 'localhost', port: 5000, path: '/api/admin/test-subsidy-date', method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  }, { systemKw: 2.5, testDate: '2026-11-01' });
+  console.log('2026 Fractional 2.5kW Subsidy:', testFractional.data.result.subsidyAmount, '(Expected: 69,000)');
+
+  // Test commercial exclusion
+  const testCommercial = await request({
+    hostname: 'localhost', port: 5000, path: '/api/admin/test-subsidy-date', method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  }, { systemKw: 5, testDate: '2026-11-01', customerCategory: 'COMMERCIAL' });
+  console.log('Commercial Category Subsidy:', testCommercial.data.result.subsidyAmount, '(Expected: 0)');
+
   // 7. Stuck Projects & Pipeline
   console.log('\n7. Checking Stuck Projects Dashboard...');
   const projectsRes = await request({ hostname: 'localhost', port: 5000, path: '/api/projects', method: 'GET' });

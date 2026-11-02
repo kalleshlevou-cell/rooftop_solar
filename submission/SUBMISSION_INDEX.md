@@ -6,7 +6,7 @@
 **Implementation Duration**: 6 Calendar Weeks (42 Calendar Days)  
 **Warranty Period**: 60 Calendar Days Post-Deployment (Commencing on production deployment or within 14 days of M4)  
 **Change Request Rate**: ₹2,500 per developer hour  
-**Document Status**: Fully Harmonized & Formally Attached Package  
+**Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval  
 
 ---
 
@@ -28,9 +28,11 @@
   6. *Source Code Handover & Knowledge Transfer* (Clause 13)
 
 ### 2. `PRD_Rooftop_Solar_Platform.md` (Schedule A — PRD v2.0)
-- **Problem Formulation**: Distinctly separates confirmed client inputs from working model assumptions (₹86.88L modeled bleed: 40% unqualified surveys @ ₹2,500/visit + 4% lost genuine leads @ ₹36,000 margin).
-- **Target Performance KPIs**: Formulates proposed target goals (&lt; 15% unqualified survey rate; &gt; 90% same-day quotation delivery; &ge; 50% status call reduction) with testable mathematical measurement criteria.
-- **Statutory Alignment & Governance**: Verified PM Surya Ghar rules (₹30,000/kW up to 2 kW, ₹18,000 for 3rd kW, max ₹78,000), 1,400 kWh/kW/yr Vidarbha solar generation constant, and DPDP Act 2023 technical safeguards.
+- **Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval.
+- **Problem Formulation**: Distinctly separates confirmed client inputs from working model assumptions (₹86.88L modeled bleed: potential avoided survey costs + modeled lost margin from 4% of genuine viable leads).
+- **Target Performance KPIs**: Standardized measurement definitions with business-day same-day quote rates, baseline survey rates, and routine status call reductions.
+- **Statutory Alignment & Governance**: Verified PM Surya Ghar rules including fractional kW calculation ($S(P)$ formula up to ₹78,000 cap), residential scope limitation (commercial excluded by default), National Portal eligibility date logic, and DPDP Act 2023 technical safeguards.
+- **Safety Conditions & Token Security**: System sizing safety conditions (minimum capacity, roof feasibility, human review) and high-entropy (≥128-bit) rate-limited public tracking tokens with revocation.
 - **AI/OCR Responsibility & Simulation Clarity**: Confirms OCR values are preliminary until human-reviewed, and verifies that payment gateway and WhatsApp/SMS operate in simulation mode.
 
 ### 3. `Project_Timeline_and_Budget.md` (Schedule B — Timeline Plan v2.0)

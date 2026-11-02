@@ -7,9 +7,9 @@
 **Document Reference**: Schedule B (Timeline Plan v2.0)  
 **Total Commercial Value**: ₹6,00,000 (INR 6 Lakh, Exclusive of Applicable GST)  
 **Total Duration**: 6 Calendar Weeks (42 Calendar Days)  
-**Warranty Period**: 60 Calendar Days Post-Deployment  
+**Warranty Period**: 60 Calendar Days commencing upon actual production deployment or 14 calendar days post-M4 formal acceptance, whichever occurs earlier (support hours: 09:30–18:30 IST, Monday–Saturday, excluding public holidays)  
 **Change Request Rate**: ₹2,500 per developer hour (subject to signed approval)  
-**Document Status**: Formally Approved Implementation Plan  
+**Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval  
 
 ---
 
@@ -18,7 +18,7 @@
 ### 1.1 Classification of Inputs, Assumptions & Facts
 - **Supplied Commercial Inputs (Contractual)**: Total development fee of **₹6,00,000** allocated across four milestone payments; target delivery window of **6 weeks**.
 - **Working Engineering Assumptions**: Company A will provide sample historical MSEDCL bills (anonymized), representative cost schedules for Tier-1 modules/inverters, and access to internal sales/survey personnel for User Acceptance Testing (UAT).
-- **Verified Policy Facts**: Central PM Surya Ghar subsidy rates (₹30k/kW up to 2kW, ₹18k for 3rd kW, capped at ₹78k) and MSEDCL LT-I domestic tariff slabs across Nagpur/Vidarbha.
+- **Verified Policy Facts**: Central PM Surya Ghar subsidy rates for general-state residential consumers (₹30,000/kW up to 2 kW, ₹18,000/kW from 2 kW to 3 kW with fractional capacity support, capped at ₹78,000; commercial excluded) and MSEDCL LT-I domestic tariff slabs across Nagpur/Vidarbha.
 
 ### 1.2 Budget Breakdown by Deliverable Category
 The ₹6,00,000 fixed-price fee is distributed across technical work packages as follows:

@@ -7,11 +7,28 @@
  * - Capped at ₹78,000 for >= 3 kW
  */
 
-export function calculateSubsidy(systemKw, quoteDate = new Date(), subsidyRules = []) {
+export function calculateSubsidy(systemKw, quoteDate = new Date(), subsidyRules = [], customerCategory = 'RESIDENTIAL') {
   const targetDate = new Date(quoteDate);
   const targetDateStr = targetDate.toISOString().split('T')[0];
 
-  // Find the applicable rule active on the given quote date
+  // Commercial / non-residential exclusion check
+  if (customerCategory && customerCategory.toUpperCase() === 'COMMERCIAL') {
+    return {
+      ruleId: 'COMMERCIAL_EXCLUDED',
+      ruleName: 'Commercial Category (Exempt from Residential Subsidy)',
+      ruleCode: 'COMMERCIAL_NO_SUBSIDY',
+      effectiveFrom: targetDateStr,
+      effectiveTo: '2099-12-31',
+      systemKw: Number(systemKw),
+      subsidyAmount: 0,
+      maxCap: 0,
+      explanation: 'Commercial installations are excluded from PM Surya Ghar residential central financial assistance by default.',
+      discomCode: 'MSEDCL-MAHAVITARAN',
+      state: 'Maharashtra (Vidarbha Region)'
+    };
+  }
+
+  // Find the applicable rule active on the given quote date / scheme eligibility date
   const rule = subsidyRules.find(r => {
     const from = r.effectiveFrom;
     const to = r.effectiveTo || '2099-12-31';
@@ -34,7 +51,8 @@ export function calculateSubsidy(systemKw, quoteDate = new Date(), subsidyRules 
   let explanation = '';
 
   if (rule.type === 'TIERED_PER_KW') {
-    // PM Surya Ghar Scheme
+    // PM Surya Ghar Scheme (Residential General-State Category)
+    // S(P) = 30,000*P for 0 < P <= 2; 60,000 + 18,000*(P-2) for 2 < P < 3; 78,000 for P >= 3
     const tier1Max = rule.tier1MaxKw || 2;
     const tier1Rate = rule.tier1RatePerKw || 30000;
     const tier2Rate = rule.tier2RatePerKw || 18000;
@@ -46,12 +64,15 @@ export function calculateSubsidy(systemKw, quoteDate = new Date(), subsidyRules 
     } else if (kw <= tier1Max) {
       subsidy = kw * tier1Rate;
       explanation = `${kw} kW × ₹${tier1Rate.toLocaleString('en-IN')}/kW = ₹${subsidy.toLocaleString('en-IN')}`;
-    } else {
-      const tier1Amount = tier1Max * tier1Rate; // 60,000
-      const tier2Kw = Math.min(kw - tier1Max, 1); // 1 kW for tier 2
-      const tier2Amount = tier2Kw * tier2Rate; // 18,000
+    } else if (kw < (tier1Max + 1)) {
+      const tier1Amount = tier1Max * tier1Rate; // ₹60,000
+      const fractionalKw = kw - tier1Max; // e.g. 0.5 kW for 2.5 kW
+      const tier2Amount = fractionalKw * tier2Rate; // 0.5 * ₹18,000 = ₹9,000
       subsidy = Math.min(tier1Amount + tier2Amount, cap);
-      explanation = `First ${tier1Max} kW @ ₹${tier1Rate.toLocaleString('en-IN')} (₹${tier1Amount.toLocaleString('en-IN')}) + next ${tier2Kw.toFixed(1)} kW @ ₹${tier2Rate.toLocaleString('en-IN')} (₹${tier2Amount.toLocaleString('en-IN')}) = ₹${subsidy.toLocaleString('en-IN')} (Capped at ₹${cap.toLocaleString('en-IN')})`;
+      explanation = `First ${tier1Max} kW @ ₹${tier1Rate.toLocaleString('en-IN')} (₹${tier1Amount.toLocaleString('en-IN')}) + next ${fractionalKw.toFixed(2)} kW @ ₹${tier2Rate.toLocaleString('en-IN')} (₹${tier2Amount.toLocaleString('en-IN')}) = ₹${subsidy.toLocaleString('en-IN')}`;
+    } else {
+      subsidy = cap;
+      explanation = `First 2 kW @ ₹30,000 (₹60,000) + 1 kW @ ₹18,000 (₹18,000) = ₹78,000 (Capped at maximum CFA for capacity ≥ 3 kW)`;
     }
   } else if (rule.type === 'PERCENTAGE_BENCHMARK') {
     // Legacy MNRE Phase II scheme

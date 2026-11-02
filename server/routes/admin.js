@@ -74,9 +74,9 @@ router.put('/pricing', (req, res) => {
 
 // POST test subsidy calculation against a specific historical or future date
 router.post('/test-subsidy-date', (req, res) => {
-  const { systemKw = 3, testDate = '2026-11-01' } = req.body;
+  const { systemKw = 3, testDate = '2026-11-01', customerCategory = 'RESIDENTIAL' } = req.body;
   const rules = db.getSubsidyRules();
-  const result = calculateSubsidy(Number(systemKw), testDate, rules);
+  const result = calculateSubsidy(Number(systemKw), testDate, rules, customerCategory);
   res.json({ success: true, result });
 });
 
