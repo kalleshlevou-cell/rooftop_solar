@@ -1,6 +1,98 @@
 {
   "leads": [
     {
+      "id": "LD-30926",
+      "name": "Suresh Dandekar",
+      "phone": "+91 98220 99411",
+      "email": "",
+      "occupancyType": "Owner",
+      "monthlyBill": 4100,
+      "avgUnits": 420,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 1000,
+      "pincode": "440010",
+      "address": "Dharampeth, Nagpur",
+      "consumerNumber": "049018823109",
+      "sanctionedLoadKw": 4,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 4,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit (Hot Genuine Lead)",
+      "surveyCostSaved": 0,
+      "leadTags": [
+        "High ROI",
+        "Priority Visit",
+        "4 kW Candidate",
+        "Fast-Track Quote"
+      ],
+      "priority": "P1_IMMEDIATE",
+      "status": "QUOTE_APPROVED",
+      "quoteGenerated": false,
+      "trackingToken": "TRK-DANDEKAR-30926",
+      "dpdpConsent": true,
+      "billImage": "msedcl_dharampeth.jpg",
+      "billDetails": {
+        "consumerName": "Suresh Dandekar",
+        "consumerNumber": "049018823109",
+        "maskedConsumerNumber": "04901*****90",
+        "billingUnit": "4101 (Nagpur Circle)",
+        "subDivision": "Nagpur Urban Sub-Division",
+        "tariffCategory": "LT-I B Residential",
+        "sanctionedLoadKw": 4,
+        "connectedLoadKw": 4,
+        "monthlyUnits": 436,
+        "billedAmount": 4100,
+        "billMonth": "October 2026",
+        "meterNumber": "MHD-1616032",
+        "address": "Dharampeth, Nagpur",
+        "maskedAddress": "Civil Lines, Nagpur 44****",
+        "imageQualityScore": 92,
+        "isPoorPhoto": false,
+        "confidence": {
+          "consumerNumber": 0.95,
+          "tariffCategory": 0.94,
+          "sanctionedLoad": 0.91,
+          "monthlyUnits": 0.95,
+          "billedAmount": 0.98
+        },
+        "sanctionedLoad": 4,
+        "units": 420,
+        "amount": 4100,
+        "isHumanConfirmed": true
+      },
+      "createdAt": "2026-11-02T06:35:01.707Z",
+      "updatedAt": "2026-11-02T06:35:01.729Z",
+      "history": [
+        {
+          "timestamp": "2026-11-02T06:35:01.707Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead submitted with Owner status, ₹4100 bill."
+        },
+        {
+          "timestamp": "2026-11-02T06:35:01.707Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "AI Evaluated score as \"High\". Action: Priority Same-Day Surveyor Visit (Hot Genuine Lead)"
+        },
+        {
+          "timestamp": "2026-11-02T06:35:01.711Z",
+          "stage": "OCR_VERIFIED",
+          "note": "Extracted values human-verified & confirmed. Score re-evaluated to \"High\"."
+        },
+        {
+          "timestamp": "2026-11-02T06:35:01.729Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Advance payment of ₹10,200 received successfully via UPI (Txn: PAY-MOCK-66939158). Project agreement initiated."
+        }
+      ],
+      "advancePaymentDetails": {
+        "paymentId": "PAY-MOCK-66939158",
+        "amount": 10200,
+        "method": "UPI",
+        "paidAt": "2026-11-02T06:35:01.729Z"
+      }
+    },
+    {
       "id": "LD-30925",
       "name": "Suresh Dandekar",
       "phone": "+91 98220 99411",
@@ -866,6 +958,32 @@
     "discomLiaisonFee": 4500
   },
   "notifications": [
+    {
+      "templateKey": "QUOTE_APPROVED",
+      "title": "Agreement Signed & Advance Received",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98230 XXXXX",
+      "recipientName": "Suresh Dandekar",
+      "language": "en",
+      "messageText": "Congratulations Suresh Dandekar! Your solar agreement with Company A is confirmed and ₹10,000 booking advance received. MSEDCL Net Metering application is now being prepared. Track live progress: http://localhost:5173/track/TRK-DANDEKAR-30926",
+      "timestamp": "2026-11-02T06:35:01.733Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-11292751",
+      "leadId": "LD-30926"
+    },
+    {
+      "templateKey": "LEAD_QUALIFIED_HIGH",
+      "title": "Lead Qualified (High Priority)",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98220 99411",
+      "recipientName": "Suresh Dandekar",
+      "language": "mr",
+      "messageText": "नमस्कार Suresh Dandekar! कंपनी ए, नागपूर कडून तुमची सोलर चौकशी मंजूर झाली आहे. तुम्हाला 4 kW सोलर प्रणाली आणि ₹78,000 पीएम सूर्य घर सबसिडी मिळू शकते! आमचे सर्व्हेअर आज तुमच्या छताची तपासणी करतील. स्थिती तपासा: http://localhost:5173/track/TRK-DANDEKAR-30926",
+      "timestamp": "2026-11-02T06:35:01.708Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-56832943",
+      "leadId": "LD-30926"
+    },
     {
       "templateKey": "QUOTE_APPROVED",
       "title": "Agreement Signed & Advance Received",

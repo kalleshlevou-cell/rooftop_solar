@@ -32,14 +32,17 @@
 - **Problem Formulation**: Distinctly separates confirmed client inputs from working model assumptions (₹86.88L modeled bleed: potential avoided survey costs + modeled lost margin from 4% of genuine viable leads).
 - **Target Performance KPIs**: Standardized measurement definitions with business-day same-day quote rates, baseline survey rates, and routine status call reductions.
 - **Statutory Alignment & Governance**: Verified PM Surya Ghar rules including fractional kW calculation ($S(P)$ formula up to ₹78,000 cap), residential scope limitation (commercial excluded by default), National Portal eligibility date logic, and DPDP Act 2023 technical safeguards.
-- **Safety Conditions & Token Security**: System sizing safety conditions (minimum capacity, roof feasibility, human review) and high-entropy (≥128-bit) rate-limited public tracking tokens with revocation.
-- **AI/OCR Responsibility & Simulation Clarity**: Confirms OCR values are preliminary until human-reviewed, and verifies that payment gateway and WhatsApp/SMS operate in simulation mode.
+- **Safety Conditions & Token Security**: System sizing safety conditions (consumption-based preliminary capacity with low-consumption advisory below 1 kW, roof feasibility, human review) and high-entropy (≥128-bit) rate-limited public tracking tokens with revocation.
+- **AI/OCR Responsibility & Simulation Clarity**: Normalized 0–100 image quality score distinguishing sharpness from per-field character confidence; confirms OCR values are preliminary until human-reviewed; verifies payment gateway and WhatsApp/SMS operate in simulation mode.
+- **Pricing & DBT Verification Governance**: Reproducible rate cards for gross and net pricing ($Net = Gross - Subsidy$); Stage 8 DBT completion strictly requires verified credit confirmation.
 
 ### 3. `Project_Timeline_and_Budget.md` (Schedule B — Timeline Plan v2.0)
-- **Work Breakdown Structure (WBS)**: Detailed week-by-week implementation deliverables with explicit technical prerequisites and dependencies.
+- **Scope Prioritization Framework**: Explicit four-tier classification (Must-Have core, Should-Have enhancements, Simulation-Only demonstrations, Excluded boundaries) protecting the 6-week delivery feasibility.
+- **Work Breakdown Structure (WBS)**: Detailed week-by-week implementation deliverables with explicit technical prerequisites and dependencies (sample bills, rate cards).
 - **Client & Contractor Responsibilities**: Clear delineation of duties (sample bills, rate cards, UAT staff).
-- **Objective Acceptance Criteria**: Standardized verification criteria for each milestone.
+- **Objective Acceptance Criteria**: Standardized verification criteria for each milestone matching Agreement Clause 4.
 - **Milestone Payment Schedule**: 4 milestones of ₹1,50,000 (25% each) tied to formal technical acceptance.
+- **Handover Deliverables**: Complete source code Git repository, schemas, API documentation, 14-day DPDP data wipe, and 4 hours of interactive recorded training (Clause 13.2).
 - **Governance**: Full RACI responsibility assignment matrix and risk management plan with day-for-day extension clauses.
 
 ### 4. Working Software Implementation:

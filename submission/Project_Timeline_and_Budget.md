@@ -31,6 +31,31 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 | **WP-4: SLA Monitor, Localized Comms & UAT** | Internal monitoring threshold dashboard, WhatsApp simulation, training & go-live | ₹1,50,000 | 25.0% |
 | **TOTAL CONTRACT PRICE** | **Full-Stack Software Development & Deployment** | **₹6,00,000** | **100.0%** |
 
+### 1.3 Scope Prioritization Framework
+To protect delivery feasibility within the strict 6-week timeframe and ₹6,00,000 fixed-price budget, deliverables are explicitly categorized into four delivery tiers:
+- **Must-Have (Core Delivery Scope)**:
+  1. Lead intake form with property owner vs tenant routing (virtual phone consultation for property authorization/consent).
+  2. Side-by-side MSEDCL bill OCR reader with normalized 0–100 image quality score and per-field character extraction confidence.
+  3. Algorithmic qualification engine with cost-saving phone consultation routing and preliminary sizing advisory.
+  4. Date-effective subsidy calculation engine (PM Surya Ghar fractional formula up to ₹78,000 cap; historical Phase II rules; commercial exclusion).
+  5. Interactive quotation builder and vector PDF generator with versioned rate cards.
+  6. 8-Stage project tracker with verified DBT status governance (Stage 8 requires verified credit confirmation).
+  7. Public zero-login customer status link (`/track/:token`) with ≥128-bit cryptographic tokens and rate limiting.
+  8. Internal SLA bottleneck alert dashboard with monitoring thresholds and draft escalation records.
+- **Should-Have (Enhanced Experience Scope)**:
+  1. Trilingual localization toggle (Marathi, Hindi, English).
+  2. Customer Document Locker for downloadable project files.
+  3. Administrative pricing rate card editor and dated subsidy rule tester.
+  4. DPDP Act 2023 privacy masking and purpose-limitation consent logs.
+- **Simulation-Only (Demonstration & Audit Scope)**:
+  1. Mock payment gateway simulating advance UPI/NetBanking transactions without live money movement.
+  2. Localized WhatsApp and SMS simulation generating visual logs without live carrier dispatch.
+- **Explicitly Excluded (Out-of-Scope)**:
+  1. Automated CAPTCHA/Aadhaar bot submissions to the National Subsidy Portal.
+  2. Internal warehouse inventory, procurement, and physical logistics ERP modules.
+  3. Inverter IoT string telemetry and live generation monitoring.
+  4. Third-party commercial payment gateway merchant underwriting and live carrier SMS/WhatsApp API charges (paid directly by Client under Agreement Clause 12).
+
 ---
 
 ## 2. Six-Week Implementation Schedule & Dependency Map
@@ -127,34 +152,41 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 
 ### Week 5: 8-Stage Tracker, Public Status Link & Internal SLA Monitor
 - **Technical Scope**:
-  - 8-Stage project lifecycle pipeline tracking progress from advance to DBT release.
-  - Public customer tracking link (`/track/:token`) accessible via smartphone without password authentication.
+  - 8-Stage project lifecycle pipeline tracking progress from advance to DBT release, with Stage 8 strictly governed by verified credit evidence (never inferred from elapsed days).
+  - Public customer tracking link (`/track/:token`) accessible via smartphone without password authentication, using cryptographically random tokens (≥128 bits entropy) and IP rate limiting.
   - Customer Document Locker for survey reports, agreements, sanction letters, and subsidy receipts.
-  - Stuck Projects Monitor flagging projects exceeding internal monitoring thresholds (MSEDCL sanction threshold: 10 days; DBT release threshold: 20 days) with one-click escalation.
+  - DPDP Act 2023 technical safeguards verification: consumer number masking (`04901*****31`), purpose-limitation consent logs, and secure tokenization.
+  - Stuck Projects Monitor flagging projects exceeding internal monitoring thresholds (MSEDCL sanction threshold: 10 days; DBT release threshold: 20 days) with internal escalation logging and draft escalation communications.
   - Mock payment gateway operating in simulation mode for demonstrating milestone advance workflows.
 - **Prerequisites & Dependencies**: Completion of Week 4 quote generation and payment milestone definitions.
 - **Client Responsibilities**: Validate internal operational monitoring thresholds for Nagpur urban and rural circles.
 - **Contractor Responsibilities**: Implement project pipeline views, public tracking endpoint, internal threshold alert logic, and mock payment simulation.
 - **Formal Acceptance Criteria**:
-  1. Navigating to `/track/:token` displays sanitized progress, document locker, and milestone payments without authentication.
+  1. Navigating to `/track/:token` displays sanitized progress, document locker, and milestone payments without authentication; requests exceeding rate limits return HTTP 429.
   2. Projects with elapsed days exceeding internal monitoring thresholds appear prominently in the Stuck Projects Alert Center.
   3. Executing a mock payment successfully advances lead status to `QUOTE_APPROVED` and logs the transaction.
+  4. Stage 8 requires manual entry of verified credit reference before advancing to complete.
 
 ---
 
 ### Week 6: Notification Simulation, Nagpur Pilot, UAT & Handover
 - **Technical Scope**:
-  - WhatsApp & SMS notification dispatcher operating in simulation mode with pre-built Marathi, Hindi, and English templates.
+  - WhatsApp & SMS notification dispatcher operating in simulation mode with pre-built Marathi, Hindi, and English templates (generating internal visual and audit logs without live carrier dispatch).
   - Interactive message simulation interface and audit trail.
+  - Formal 5-day User Acceptance Testing (UAT) window under Agreement Clause 4, with defined defect severity remediation SLAs (Critical: 24h, Major: 48h, Minor: release patch).
   - End-to-end regression testing (`test-e2e.js`) with agreed acceptance threshold (100% of internal platform test suites pass, excluding third-party network outages).
-  - Staff training workshop and delivery of operational manuals.
+  - Source code and asset handover under Agreement Clause 13: Git repository, production build artifacts, deployment instructions, schema DDL, and API documentation.
+  - Four (4) hours of interactive recorded training for Company A sales, technical, and operations personnel.
+  - DPDP Act 2023 14-day data wipe protocol executed for all development and staging environments under Consultant control.
 - **Prerequisites & Dependencies**: Completion of all previous modules (Weeks 1–5).
 - **Client Responsibilities**: Assemble 10 sales and survey staff members for a 3-hour training and UAT session; execute Founder-MD acceptance sign-off.
-- **Contractor Responsibilities**: Conduct UAT, resolve reproducible defects within agreed SLAs, deploy production bundle, and conduct knowledge transfer.
+- **Contractor Responsibilities**: Conduct UAT, resolve reproducible defects within agreed SLAs, deploy production bundle, conduct 4 hours of training, and execute handover.
 - **Formal Acceptance Criteria**:
   1. Agreed automated regression test suite (`test-e2e.js`) achieves 100% pass rate on internal application code.
   2. Company A staff successfully execute full workflow from bill upload to PDF quote and status link during UAT.
-  3. Founder-MD signs formal Certificate of Acceptance.
+  3. Complete source code, schemas, and API documentation delivered and verified in Client environment.
+  4. Four (4) hours of interactive training conducted with attendance record.
+  5. Founder-MD signs formal Certificate of Acceptance.
 
 ---
 
@@ -167,7 +199,7 @@ Payments under the software services agreement are strictly milestone-based:
 | **M1** | **Architecture, Data Schemas & Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; schema deployed; dated subsidy engine passing unit tests. | ₹1,50,000 | 25% |
 | **M2** | **Intake Form & AI OCR Verification** | End of Week 2 | Form live in EN/MR/HI; side-by-side OCR verification and blurriness alert working. | ₹1,50,000 | 25% |
 | **M3** | **Quotation Builder & Public Tracker** | End of Week 4 | PDF quote generator validated; public `/track/:token` active; qualification rules active. | ₹1,50,000 | 25% |
-| **M4** | **SLA Monitor, Nagpur Pilot, UAT & Handover** | End of Week 6 | Agreed regression test suite passing; staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
+| **M4** | **SLA Monitor, Nagpur Pilot, UAT & Handover** | End of Week 6 | Agreed regression test suite achieves 100% pass rate on internal application code; 4 hours of staff training completed; source code and admin credentials handed over; Client issues written Certificate of Acceptance. | ₹1,50,000 | 25% |
 | **TOTAL** | | | **Full Platform Delivery** | **₹6,00,000** | **100%** |
 
 ---
