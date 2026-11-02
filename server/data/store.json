@@ -1,0 +1,762 @@
+{
+  "leads": [
+    {
+      "id": "LD-30923",
+      "name": "Suresh Dandekar",
+      "phone": "+91 98220 99411",
+      "email": "",
+      "occupancyType": "Owner",
+      "monthlyBill": 4100,
+      "avgUnits": 420,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 1000,
+      "pincode": "440010",
+      "address": "Dharampeth, Nagpur",
+      "consumerNumber": "049018823109",
+      "sanctionedLoadKw": 4,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 4,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit (Hot Genuine Lead)",
+      "surveyCostSaved": 0,
+      "leadTags": [
+        "High ROI",
+        "Priority Visit",
+        "4 kW Candidate",
+        "Fast-Track Quote"
+      ],
+      "priority": "P1_IMMEDIATE",
+      "status": "QUOTE_APPROVED",
+      "quoteGenerated": false,
+      "trackingToken": "TRK-DANDEKAR-30923",
+      "dpdpConsent": true,
+      "billImage": "msedcl_dharampeth.jpg",
+      "billDetails": {
+        "consumerName": "Suresh Dandekar",
+        "consumerNumber": "049018823109",
+        "maskedConsumerNumber": "04901*****74",
+        "billingUnit": "4101 (Nagpur Circle)",
+        "subDivision": "Nagpur Urban Sub-Division",
+        "tariffCategory": "LT-I B Residential",
+        "sanctionedLoadKw": 4,
+        "connectedLoadKw": 4,
+        "monthlyUnits": 436,
+        "billedAmount": 4100,
+        "billMonth": "October 2026",
+        "meterNumber": "MHD-5760991",
+        "address": "Dharampeth, Nagpur",
+        "maskedAddress": "Civil Lines, Nagpur 44****",
+        "imageQualityScore": 92,
+        "isPoorPhoto": false,
+        "confidence": {
+          "consumerNumber": 0.95,
+          "tariffCategory": 0.94,
+          "sanctionedLoad": 0.91,
+          "monthlyUnits": 0.95,
+          "billedAmount": 0.98
+        },
+        "sanctionedLoad": 4,
+        "units": 420,
+        "amount": 4100,
+        "isHumanConfirmed": true
+      },
+      "createdAt": "2026-11-02T05:12:49.334Z",
+      "updatedAt": "2026-11-02T05:12:49.381Z",
+      "history": [
+        {
+          "timestamp": "2026-11-02T05:12:49.334Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead submitted with Owner status, ₹4100 bill."
+        },
+        {
+          "timestamp": "2026-11-02T05:12:49.334Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "AI Evaluated score as \"High\". Action: Priority Same-Day Surveyor Visit (Hot Genuine Lead)"
+        },
+        {
+          "timestamp": "2026-11-02T05:12:49.353Z",
+          "stage": "OCR_VERIFIED",
+          "note": "Extracted values human-verified & confirmed. Score re-evaluated to \"High\"."
+        },
+        {
+          "timestamp": "2026-11-02T05:12:49.381Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Advance payment of ₹10,200 received successfully via UPI (Txn: PAY-MOCK-32953051). Project agreement initiated."
+        }
+      ],
+      "advancePaymentDetails": {
+        "paymentId": "PAY-MOCK-32953051",
+        "amount": 10200,
+        "method": "UPI",
+        "paidAt": "2026-11-02T05:12:49.381Z"
+      }
+    },
+    {
+      "id": "LD-30922",
+      "name": "Suresh Dandekar",
+      "phone": "+91 98220 99411",
+      "email": "",
+      "occupancyType": "Owner",
+      "monthlyBill": 4100,
+      "avgUnits": 420,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 1000,
+      "pincode": "440010",
+      "address": "Dharampeth, Nagpur",
+      "consumerNumber": "049018823109",
+      "sanctionedLoadKw": 4,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 4,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit (Hot Genuine Lead)",
+      "surveyCostSaved": 0,
+      "leadTags": [
+        "High ROI",
+        "Priority Visit",
+        "4 kW Candidate",
+        "Fast-Track Quote"
+      ],
+      "priority": "P1_IMMEDIATE",
+      "status": "QUOTE_APPROVED",
+      "quoteGenerated": false,
+      "trackingToken": "TRK-DANDEKAR-30922",
+      "dpdpConsent": true,
+      "billImage": "msedcl_dharampeth.jpg",
+      "billDetails": {
+        "consumerName": "Suresh Dandekar",
+        "consumerNumber": "049018823109",
+        "maskedConsumerNumber": "04901*****73",
+        "billingUnit": "4101 (Nagpur Circle)",
+        "subDivision": "Nagpur Urban Sub-Division",
+        "tariffCategory": "LT-I B Residential",
+        "sanctionedLoadKw": 4,
+        "connectedLoadKw": 4,
+        "monthlyUnits": 436,
+        "billedAmount": 4100,
+        "billMonth": "October 2026",
+        "meterNumber": "MHD-2098369",
+        "address": "Dharampeth, Nagpur",
+        "maskedAddress": "Civil Lines, Nagpur 44****",
+        "imageQualityScore": 92,
+        "isPoorPhoto": false,
+        "confidence": {
+          "consumerNumber": 0.95,
+          "tariffCategory": 0.94,
+          "sanctionedLoad": 0.91,
+          "monthlyUnits": 0.95,
+          "billedAmount": 0.98
+        },
+        "sanctionedLoad": 4,
+        "units": 420,
+        "amount": 4100,
+        "isHumanConfirmed": true
+      },
+      "createdAt": "2026-11-02T05:12:26.870Z",
+      "updatedAt": "2026-11-02T05:12:26.918Z",
+      "history": [
+        {
+          "timestamp": "2026-11-02T05:12:26.870Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead submitted with Owner status, ₹4100 bill."
+        },
+        {
+          "timestamp": "2026-11-02T05:12:26.870Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "AI Evaluated score as \"High\". Action: Priority Same-Day Surveyor Visit (Hot Genuine Lead)"
+        },
+        {
+          "timestamp": "2026-11-02T05:12:26.889Z",
+          "stage": "OCR_VERIFIED",
+          "note": "Extracted values human-verified & confirmed. Score re-evaluated to \"High\"."
+        },
+        {
+          "timestamp": "2026-11-02T05:12:26.918Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Advance payment of ₹10,200 received successfully via UPI (Txn: PAY-MOCK-15616714). Project agreement initiated."
+        }
+      ],
+      "advancePaymentDetails": {
+        "paymentId": "PAY-MOCK-15616714",
+        "amount": 10200,
+        "method": "UPI",
+        "paidAt": "2026-11-02T05:12:26.918Z"
+      }
+    },
+    {
+      "id": "LD-30881",
+      "name": "Prashant Wankhede",
+      "phone": "+91 98230 44102",
+      "email": "prashant.wankhede@gmail.com",
+      "occupancyType": "Owner",
+      "monthlyBill": 3200,
+      "avgUnits": 340,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 850,
+      "pincode": "440022",
+      "address": "Plot 42, Laxmi Nagar, Nagpur 440022",
+      "consumerNumber": "049010045231",
+      "sanctionedLoadKw": 3.5,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 3,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit (Hot Genuine Lead)",
+      "surveyCostSaved": 0,
+      "status": "SURVEY_COMPLETED",
+      "quoteGenerated": true,
+      "quoteId": "QT-30881-A",
+      "trackingToken": "TRK-WANKHEDE-30881",
+      "createdAt": "2026-10-31T09:15:00.000Z",
+      "updatedAt": "2026-11-01T15:30:00.000Z",
+      "billImage": "msedcl_sample_bill_high.png",
+      "billDetails": {
+        "consumerNumber": "049010045231",
+        "maskedConsumerNumber": "04901*****31",
+        "tariff": "LT-I B Residential",
+        "sanctionedLoad": 3.5,
+        "units": 340,
+        "amount": 3200,
+        "imageQualityScore": 95
+      },
+      "history": [
+        {
+          "timestamp": "2026-10-31T09:15:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead submitted via web form with MSEDCL bill photo"
+        },
+        {
+          "timestamp": "2026-10-31T09:17:00.000Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "AI qualified lead as High (340 units/₹3,200 bill). Recommended 3 kW system."
+        },
+        {
+          "timestamp": "2026-11-01T11:00:00.000Z",
+          "stage": "SURVEY_COMPLETED",
+          "note": "Surveyor Amit Verma completed roof inspection. 850 sq ft unshaded RCC terrace verified."
+        },
+        {
+          "timestamp": "2026-11-01T14:30:00.000Z",
+          "stage": "QUOTE_SENT",
+          "note": "Official Quote QT-30881-A sent via WhatsApp."
+        }
+      ]
+    },
+    {
+      "id": "LD-30902",
+      "name": "Rohit Meshram",
+      "phone": "+91 94221 88319",
+      "email": "rohit.meshram@outlook.com",
+      "occupancyType": "Tenant",
+      "monthlyBill": 1900,
+      "avgUnits": 210,
+      "roofType": "Metal Sheet",
+      "roofAreaSqFt": 400,
+      "pincode": "440010",
+      "address": "Flat 302, Gokulpeth, Nagpur 440010",
+      "consumerNumber": "049015523912",
+      "sanctionedLoadKw": 2,
+      "tariffCategory": "LT-I Residential",
+      "recommendedKw": null,
+      "score": "Low (tenant)",
+      "scoreCategory": "LOW_TENANT",
+      "recommendationAction": "5-Min Phone Consultation (Landlord Consent & Virtual Consult)",
+      "surveyCostSaved": 2500,
+      "status": "PHONE_CONSULTATION_SCHEDULED",
+      "quoteGenerated": false,
+      "trackingToken": "TRK-MESHRAM-30902",
+      "createdAt": "2026-11-01T10:20:00.000Z",
+      "updatedAt": "2026-11-01T10:25:00.000Z",
+      "billImage": "msedcl_sample_bill_tenant.png",
+      "billDetails": {
+        "consumerNumber": "049015523912",
+        "maskedConsumerNumber": "04901*****12",
+        "tariff": "LT-I Residential",
+        "sanctionedLoad": 2,
+        "units": 210,
+        "amount": 1900,
+        "imageQualityScore": 90
+      },
+      "history": [
+        {
+          "timestamp": "2026-11-01T10:20:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Form submitted"
+        },
+        {
+          "timestamp": "2026-11-01T10:22:00.000Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "Evaluated as Low (tenant). Replaced ₹2,500 survey with 5-minute virtual consultation."
+        }
+      ]
+    },
+    {
+      "id": "LD-30915",
+      "name": "Ayesha Siddiqui",
+      "phone": "+91 98902 12948",
+      "email": "ayesha.siddiqui@rediffmail.com",
+      "occupancyType": "Owner",
+      "monthlyBill": 650,
+      "avgUnits": 85,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 600,
+      "pincode": "440002",
+      "address": "House 14, Mominpura, Nagpur 440002",
+      "consumerNumber": "049019912044",
+      "sanctionedLoadKw": 1,
+      "tariffCategory": "LT-I Residential",
+      "recommendedKw": 1,
+      "score": "Low (small bill)",
+      "scoreCategory": "LOW_BILL",
+      "recommendationAction": "Mini 1 kW Advice Call (Replace Survey with Call)",
+      "surveyCostSaved": 2500,
+      "status": "PHONE_CONSULTATION_SCHEDULED",
+      "quoteGenerated": false,
+      "trackingToken": "TRK-SIDDIQUI-30915",
+      "createdAt": "2026-11-01T14:45:00.000Z",
+      "updatedAt": "2026-11-01T14:50:00.000Z",
+      "billImage": "msedcl_sample_bill_low.png",
+      "billDetails": {
+        "consumerNumber": "049019912044",
+        "maskedConsumerNumber": "04901*****44",
+        "tariff": "LT-I Residential",
+        "sanctionedLoad": 1,
+        "units": 85,
+        "amount": 650,
+        "imageQualityScore": 92
+      },
+      "history": [
+        {
+          "timestamp": "2026-11-01T14:45:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Form submitted"
+        },
+        {
+          "timestamp": "2026-11-01T14:48:00.000Z",
+          "stage": "LEAD_QUALIFIED",
+          "note": "Evaluated as Low (small bill ₹650). Replaced ₹2,500 physical survey with 1 kW micro-solar advice call."
+        }
+      ]
+    },
+    {
+      "id": "LD-30820",
+      "name": "Rajesh Agrawal",
+      "phone": "+91 98222 30190",
+      "email": "rajesh.agrawal@agrawalsurgicals.com",
+      "occupancyType": "Owner",
+      "monthlyBill": 5800,
+      "avgUnits": 620,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 1400,
+      "pincode": "440012",
+      "address": "Commercial Complex, Itwari, Nagpur 440012",
+      "consumerNumber": "049018471920",
+      "sanctionedLoadKw": 5,
+      "tariffCategory": "LT-I B Residential / Commercial Hybrid",
+      "recommendedKw": 5,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit",
+      "surveyCostSaved": 0,
+      "status": "DISCOM_APPLICATION_SUBMITTED",
+      "quoteGenerated": true,
+      "quoteId": "QT-30820-A",
+      "trackingToken": "TRK-AGRAWAL-30820",
+      "createdAt": "2026-10-12T08:00:00.000Z",
+      "updatedAt": "2026-10-16T11:00:00.000Z",
+      "billImage": "msedcl_sample_bill_agrawal.png",
+      "billDetails": {
+        "consumerNumber": "049018471920",
+        "maskedConsumerNumber": "04901*****20",
+        "tariff": "LT-I B Residential",
+        "sanctionedLoad": 5,
+        "units": 620,
+        "amount": 5800,
+        "imageQualityScore": 96
+      },
+      "history": [
+        {
+          "timestamp": "2026-10-12T08:00:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead registered"
+        },
+        {
+          "timestamp": "2026-10-12T10:00:00.000Z",
+          "stage": "SURVEY_COMPLETED",
+          "note": "5 kW roof survey done"
+        },
+        {
+          "timestamp": "2026-10-13T14:00:00.000Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Quote approved, advance ₹10,000 received"
+        },
+        {
+          "timestamp": "2026-10-16T11:00:00.000Z",
+          "stage": "DISCOM_APPLICATION_SUBMITTED",
+          "note": "MSEDCL online portal application filed (Ref: MSEDCL-NGP-9482). Pending DISCOM Junior Engineer sanction."
+        }
+      ]
+    },
+    {
+      "id": "LD-30774",
+      "name": "Sunita Deshmukh",
+      "phone": "+91 97631 55902",
+      "email": "sunita.deshmukh@yahoo.com",
+      "occupancyType": "Owner",
+      "monthlyBill": 3400,
+      "avgUnits": 360,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 900,
+      "pincode": "440025",
+      "address": "Plot 18, Manish Nagar, Nagpur 440025",
+      "consumerNumber": "049017723910",
+      "sanctionedLoadKw": 3.5,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 3,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit",
+      "surveyCostSaved": 0,
+      "status": "SUBSIDY_CLAIM_FILED",
+      "quoteGenerated": true,
+      "quoteId": "QT-30774-A",
+      "trackingToken": "TRK-DESHMUKH-30774",
+      "createdAt": "2026-09-28T09:00:00.000Z",
+      "updatedAt": "2026-10-02T16:00:00.000Z",
+      "billImage": "msedcl_sample_bill_deshmukh.png",
+      "billDetails": {
+        "consumerNumber": "049017723910",
+        "maskedConsumerNumber": "04901*****10",
+        "tariff": "LT-I B Residential",
+        "sanctionedLoad": 3.5,
+        "units": 360,
+        "amount": 3400,
+        "imageQualityScore": 94
+      },
+      "history": [
+        {
+          "timestamp": "2026-09-28T09:00:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead registered"
+        },
+        {
+          "timestamp": "2026-09-29T10:00:00.000Z",
+          "stage": "SURVEY_COMPLETED",
+          "note": "Survey done"
+        },
+        {
+          "timestamp": "2026-09-30T14:00:00.000Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Advance paid"
+        },
+        {
+          "timestamp": "2026-10-08T11:00:00.000Z",
+          "stage": "DISCOM_APPLICATION_SUBMITTED",
+          "note": "Sanction received"
+        },
+        {
+          "timestamp": "2026-10-15T16:00:00.000Z",
+          "stage": "MATERIAL_DISPATCHED_INSTALLED",
+          "note": "Panels & inverter installed"
+        },
+        {
+          "timestamp": "2026-10-20T14:00:00.000Z",
+          "stage": "DISCOM_INSPECTION_METERING",
+          "note": "Net meter commissioned"
+        },
+        {
+          "timestamp": "2026-10-22T12:00:00.000Z",
+          "stage": "SUBSIDY_CLAIM_FILED",
+          "note": "National portal claim submitted. Pending DBT disbursement."
+        }
+      ]
+    },
+    {
+      "id": "LD-30650",
+      "name": "Dr. Anand Kulkarni",
+      "phone": "+91 98224 77109",
+      "email": "dr.anand.kulkarni@gmail.com",
+      "occupancyType": "Owner",
+      "monthlyBill": 4600,
+      "avgUnits": 490,
+      "roofType": "Concrete Flat",
+      "roofAreaSqFt": 1100,
+      "pincode": "440015",
+      "address": "Bungalow 7, Dhantoli, Nagpur 440015",
+      "consumerNumber": "049013349018",
+      "sanctionedLoadKw": 4,
+      "tariffCategory": "LT-I B Residential",
+      "recommendedKw": 4,
+      "score": "High",
+      "scoreCategory": "HIGH",
+      "recommendationAction": "Priority Same-Day Surveyor Visit",
+      "surveyCostSaved": 0,
+      "status": "SUBSIDY_CREDITED",
+      "quoteGenerated": true,
+      "quoteId": "QT-30650-A",
+      "trackingToken": "TRK-KULKARNI-30650",
+      "createdAt": "2026-09-10T10:00:00.000Z",
+      "updatedAt": "2026-10-25T11:00:00.000Z",
+      "billImage": "msedcl_sample_bill_kulkarni.png",
+      "billDetails": {
+        "consumerNumber": "049013349018",
+        "maskedConsumerNumber": "04901*****18",
+        "tariff": "LT-I B Residential",
+        "sanctionedLoad": 4,
+        "units": 490,
+        "amount": 4600,
+        "imageQualityScore": 97
+      },
+      "history": [
+        {
+          "timestamp": "2026-09-10T10:00:00.000Z",
+          "stage": "LEAD_RECEIVED",
+          "note": "Lead registered"
+        },
+        {
+          "timestamp": "2026-09-11T12:00:00.000Z",
+          "stage": "SURVEY_COMPLETED",
+          "note": "Survey done"
+        },
+        {
+          "timestamp": "2026-09-12T15:00:00.000Z",
+          "stage": "QUOTE_APPROVED",
+          "note": "Advance paid"
+        },
+        {
+          "timestamp": "2026-09-20T10:00:00.000Z",
+          "stage": "DISCOM_APPLICATION_SUBMITTED",
+          "note": "Sanctioned"
+        },
+        {
+          "timestamp": "2026-09-28T16:00:00.000Z",
+          "stage": "MATERIAL_DISPATCHED_INSTALLED",
+          "note": "Installed"
+        },
+        {
+          "timestamp": "2026-10-05T14:00:00.000Z",
+          "stage": "DISCOM_INSPECTION_METERING",
+          "note": "Net meter energized"
+        },
+        {
+          "timestamp": "2026-10-08T11:00:00.000Z",
+          "stage": "SUBSIDY_CLAIM_FILED",
+          "note": "Claim filed"
+        },
+        {
+          "timestamp": "2026-10-25T11:00:00.000Z",
+          "stage": "SUBSIDY_CREDITED",
+          "note": "₹78,000 PM Surya Ghar DBT credited to SBI A/c ending 4902"
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "QT-30881-A",
+      "leadId": "LD-30881",
+      "customerName": "Prashant Wankhede",
+      "customerPhone": "+91 98230 44102",
+      "address": "Plot 42, Laxmi Nagar, Nagpur 440022",
+      "quoteDate": "2026-11-01",
+      "validUntil": "2026-11-30",
+      "systemKw": 3,
+      "panelTierId": "TIER_STANDARD",
+      "panelTierName": "Tier-1 Mono PERC DCR (540Wp)",
+      "panelCount": 6,
+      "inverterSpec": "3.3 kW Single-Phase On-Grid String Inverter (10 Year Warranty)",
+      "grossCost": 180000,
+      "subsidyAmount": 78000,
+      "subsidyRuleApplied": "PM Surya Ghar: Muft Bijli Yojana (Active Central Scheme)",
+      "netCost": 102000,
+      "generationFactor": 1400,
+      "annualGenerationKwh": 4200,
+      "monthlyAverageUnits": 350,
+      "annualElectricitySavings": 34440,
+      "paybackYears": 3,
+      "lifetime25YrSavings": 861000,
+      "co2OffsetTonnesPerYear": 3.44,
+      "status": "SENT",
+      "paymentMilestones": [
+        {
+          "stage": "Booking Advance (10%)",
+          "amount": 10200,
+          "status": "PENDING"
+        },
+        {
+          "stage": "MSEDCL Sanction & Material Dispatch (40%)",
+          "amount": 40800,
+          "status": "PENDING"
+        },
+        {
+          "stage": "Installation & Mechanical Completion (40%)",
+          "amount": 40800,
+          "status": "PENDING"
+        },
+        {
+          "stage": "Net Meter Commissioning (10%)",
+          "amount": 10200,
+          "status": "PENDING"
+        }
+      ]
+    }
+  ],
+  "subsidyRules": [
+    {
+      "id": "SUB-2024-ACTIVE",
+      "code": "PM_SURYA_GHAR_2024",
+      "name": "PM Surya Ghar: Muft Bijli Yojana (Active Central Scheme)",
+      "schemeAuthority": "Ministry of New and Renewable Energy (MNRE) / National Portal",
+      "effectiveFrom": "2024-02-15",
+      "effectiveTo": "2099-12-31",
+      "isActive": true,
+      "type": "TIERED_PER_KW",
+      "tier1MaxKw": 2,
+      "tier1RatePerKw": 30000,
+      "tier2RatePerKw": 18000,
+      "maxCap": 78000,
+      "notes": "Direct DBT subsidy credited to consumer Aadhaar-linked bank account within 30 days of net meter commissioning. Verified active policy."
+    },
+    {
+      "id": "SUB-2022-LEGACY",
+      "code": "MNRE_PHASE_2_LEGACY",
+      "name": "Rooftop Solar Phase II (Legacy Historical Scheme)",
+      "schemeAuthority": "MNRE Central Financial Assistance",
+      "effectiveFrom": "2022-01-01",
+      "effectiveTo": "2024-02-14",
+      "isActive": false,
+      "type": "PERCENTAGE_BENCHMARK",
+      "benchmarkCostPerKw": 54000,
+      "maxCap": 150000,
+      "notes": "Legacy scheme based on 40% up to 3 kW and 20% beyond 3 kW up to 10 kW. Preserved for historical quotes and compliance."
+    }
+  ],
+  "pricingConfig": {
+    "generationFactorPerKwYear": 1400,
+    "gridTariffPerUnit": 8.2,
+    "tariffEscalationRate": 4.5,
+    "panelTiers": [
+      {
+        "id": "TIER_STANDARD",
+        "name": "Tier-1 Mono PERC DCR (Made in India)",
+        "efficiency": "21.4%",
+        "warrantyYears": 25,
+        "pricePerKw": {
+          "1": 68000,
+          "2": 62500,
+          "3": 60000,
+          "4": 58750,
+          "5": 57000,
+          "default": 56000
+        }
+      },
+      {
+        "id": "TIER_PREMIUM_BIFACIAL",
+        "name": "High-Efficiency TOPCon Bifacial (+15% rear gain)",
+        "efficiency": "22.8%",
+        "warrantyYears": 30,
+        "pricePerKw": {
+          "1": 72000,
+          "2": 66000,
+          "3": 63500,
+          "4": 62000,
+          "5": 60000,
+          "default": 59500
+        }
+      }
+    ],
+    "structureOptions": [
+      {
+        "id": "STANDARD_RCC",
+        "name": "Standard Elevated GI Structure (3-4 ft)",
+        "surcharge": 0
+      },
+      {
+        "id": "HIGH_RISE_TERRACE",
+        "name": "High-Rise Usable Terrace Super-Structure (> 7 ft)",
+        "surcharge": 8000
+      }
+    ],
+    "surveyCostPerVisit": 2500,
+    "discomLiaisonFee": 4500
+  },
+  "notifications": [
+    {
+      "templateKey": "QUOTE_APPROVED",
+      "title": "Agreement Signed & Advance Received",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98230 XXXXX",
+      "recipientName": "Suresh Dandekar",
+      "language": "en",
+      "messageText": "Congratulations Suresh Dandekar! Your solar agreement with Company A is confirmed and ₹10,000 booking advance received. MSEDCL Net Metering application is now being prepared. Track live progress: http://localhost:5173/track/TRK-DANDEKAR-30923",
+      "timestamp": "2026-11-02T05:12:49.382Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-35222213",
+      "leadId": "LD-30923"
+    },
+    {
+      "templateKey": "LEAD_QUALIFIED_HIGH",
+      "title": "Lead Qualified (High Priority)",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98220 99411",
+      "recipientName": "Suresh Dandekar",
+      "language": "mr",
+      "messageText": "नमस्कार Suresh Dandekar! कंपनी ए, नागपूर कडून तुमची सोलर चौकशी मंजूर झाली आहे. तुम्हाला 4 kW सोलर प्रणाली आणि ₹78,000 पीएम सूर्य घर सबसिडी मिळू शकते! आमचे सर्व्हेअर आज तुमच्या छताची तपासणी करतील. स्थिती तपासा: http://localhost:5173/track/TRK-DANDEKAR-30923",
+      "timestamp": "2026-11-02T05:12:49.349Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-77403097",
+      "leadId": "LD-30923"
+    },
+    {
+      "templateKey": "QUOTE_APPROVED",
+      "title": "Agreement Signed & Advance Received",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98230 XXXXX",
+      "recipientName": "Suresh Dandekar",
+      "language": "en",
+      "messageText": "Congratulations Suresh Dandekar! Your solar agreement with Company A is confirmed and ₹10,000 booking advance received. MSEDCL Net Metering application is now being prepared. Track live progress: http://localhost:5173/track/TRK-DANDEKAR-30922",
+      "timestamp": "2026-11-02T05:12:26.919Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-78697328",
+      "leadId": "LD-30922"
+    },
+    {
+      "templateKey": "LEAD_QUALIFIED_HIGH",
+      "title": "Lead Qualified (High Priority)",
+      "channel": "WhatsApp & SMS",
+      "recipientPhone": "+91 98220 99411",
+      "recipientName": "Suresh Dandekar",
+      "language": "mr",
+      "messageText": "नमस्कार Suresh Dandekar! कंपनी ए, नागपूर कडून तुमची सोलर चौकशी मंजूर झाली आहे. तुम्हाला 4 kW सोलर प्रणाली आणि ₹78,000 पीएम सूर्य घर सबसिडी मिळू शकते! आमचे सर्व्हेअर आज तुमच्या छताची तपासणी करतील. स्थिती तपासा: http://localhost:5173/track/TRK-DANDEKAR-30922",
+      "timestamp": "2026-11-02T05:12:26.886Z",
+      "status": "DELIVERED",
+      "providerMessageId": "WA-85444875",
+      "leadId": "LD-30922"
+    },
+    {
+      "id": "NOTIF-1",
+      "leadId": "LD-30881",
+      "recipientName": "Prashant Wankhede",
+      "recipientPhone": "+91 98230 44102",
+      "channel": "WhatsApp",
+      "stage": "SURVEY_COMPLETED",
+      "language": "mr",
+      "messageText": "आनंदाची बातमी प्रशांत वानखेडे! प्लॉट 42, लक्ष्मीनगर, नागपूर येथील छताचे सर्वेक्षण पूर्ण झाले आहे. ₹78,000 सबसिडीसह 3 kW सोलर कोटेशन तयार आहे. येथे पहा: http://localhost:5173/track/TRK-WANKHEDE-30881",
+      "timestamp": "2026-11-01T14:30:00.000Z",
+      "status": "DELIVERED"
+    },
+    {
+      "id": "NOTIF-2",
+      "leadId": "LD-30820",
+      "recipientName": "Rajesh Agrawal",
+      "recipientPhone": "+91 98222 30190",
+      "channel": "WhatsApp & SMS",
+      "stage": "DISCOM_APPLICATION_SUBMITTED",
+      "language": "en",
+      "messageText": "Update Rajesh Agrawal: Your grid-tied solar application (Ref: MSEDCL-NGP-9482) has been submitted on the MSEDCL Mahavitaran portal. Sanction is expected within 7-10 business days.",
+      "timestamp": "2026-10-16T11:05:00.000Z",
+      "status": "DELIVERED"
+    }
+  ]
+}

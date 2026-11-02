@@ -1,0 +1,32 @@
+{
+  "name": "company-a-solar-platform",
+  "version": "1.0.0",
+  "description": "Company A Nagpur - Rooftop Solar Lead Qualification, Quotation and Project Tracker",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "node server/index.js",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "concurrently \"node server/index.js\" \"npm run dev --prefix client\"",
+    "start": "node server/index.js"
+  },
+  "keywords": [
+    "solar",
+    "lead-qualification",
+    "quotation",
+    "tracker",
+    "vidarbha",
+    "nagpur",
+    "pm-surya-ghar"
+  ],
+  "author": "Company A Nagpur",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.0.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}
