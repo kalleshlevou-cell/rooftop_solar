@@ -286,15 +286,15 @@ export default function BillInspectorModal({ lead, isOpen, onClose, onConfirmUpd
                 <div className="text-xs text-slate-700">
                   {occupancyType === 'Tenant' ? (
                     <p className="text-amber-800">
-                      <strong>Action:</strong> 5-minute phone guidance call instead of ₹2,500 surveyor visit. Saves team bandwidth.
+                      <strong>Action:</strong> Virtual consultation for property authorization & landlord consent. Avoids ₹2,500 on-site survey visit.
                     </p>
                   ) : Number(billedAmount) < 1000 ? (
                     <p className="text-blue-800">
-                      <strong>Action:</strong> 1 kW micro-solar advice call scheduled. Surveyor visit bypassed.
+                      <strong>Action:</strong> Low-consumption advisory displayed (&lt; 1 kW). Virtual guidance call scheduled; physical survey bypassed.
                     </p>
                   ) : (
                     <p className="text-emerald-800">
-                      <strong>Action:</strong> Recommend <strong>{Math.round(Number(monthlyUnits) / 116.7) || 3} kW</strong> system. Priority same-day survey visit booked!
+                      <strong>Action:</strong> Preliminary sizing: <strong>{Math.round(Number(monthlyUnits) / 116.7) || 3} kW</strong> system (subject to technical review). Priority same-day survey visit booked!
                     </p>
                   )}
                 </div>

@@ -36,20 +36,20 @@ export function qualifyLead({
     score = 'Low (tenant)';
     scoreCategory = 'LOW_TENANT';
     recommendedKw = null; // No recommended rooftop install for tenants
-    recommendationAction = '5-Min Phone Consultation (Landlord Consent & Virtual Consult)';
-    reason = 'Applicant is a tenant. Under MSEDCL rules, rooftop solar requires registered property owner NOC and separate sanctioned meter. A physical survey (costing ₹2,500) is avoided in favor of a phone guidance call.';
+    recommendationAction = 'Virtual Consultation (Property Authorization & Landlord Consent Verification)';
+    reason = 'Applicant is a tenant. Under MSEDCL rules, rooftop solar requires registered property owner authorization, landlord consent, and separate sanctioned meter. A physical survey (costing ₹2,500) is avoided in favor of a virtual guidance call.';
     surveyCostSaved = 2500;
-    leadTags.push('Tenant', 'Needs Landlord NOC', 'Virtual Call Assigned');
+    leadTags.push('Tenant', 'Needs Landlord Consent', 'Virtual Consult Assigned');
   } 
   // 2. Check Small Bill condition (< ₹1,000 or < 100 units)
   else if (billAmount < 1000 || units < 100) {
     score = 'Low (small bill)';
     scoreCategory = 'LOW_BILL';
-    recommendedKw = 1; // Micro 1 kW solar
-    recommendationAction = 'Mini 1 kW Advice Call (Replace Survey with Call)';
-    reason = `Monthly bill of ₹${billAmount} (${units} units) is below standard threshold (₹1,000). Payback period is extended. Assigned to phone consultation rather than a ₹2,500 on-site survey.`;
+    recommendedKw = null; // Low-consumption advisory instead of automatically recommending 1 kW installation
+    recommendationAction = 'Virtual Guidance Call & Low-Consumption Advisory (Replace Survey with Call)';
+    reason = `Monthly bill of ₹${billAmount} (${units} units) is below standard threshold (₹1,000 / 100 kWh). Calculated capacity (${(units / 116.7).toFixed(2)} kW) is below standard 1 kW threshold. Displaying low-consumption advisory rather than an automatic 1 kW installation recommendation or a ₹2,500 on-site survey.`;
     surveyCostSaved = 2500;
-    leadTags.push('Small Bill (< ₹1,000)', '1 kW Suitable', 'Phone Call Assigned');
+    leadTags.push('Small Bill (< ₹1,000)', 'Low-Consumption Advisory', 'Virtual Consult Assigned');
   } 
   // 3. Medium Bill (₹1,000 - ₹2,500 or 100 - 250 units)
   else if (billAmount <= 2500 || units <= 250) {

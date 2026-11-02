@@ -160,6 +160,20 @@ async function runTests() {
   });
   console.log('Payment Result:', payRes.data.message, '| New Status:', payRes.data.newStatus);
 
+  // 9b. Testing Stage 8 DBT Verification Governance
+  console.log('\n9b. Testing Stage 8 DBT Subsidy Credit Governance...');
+  const dbtFail = await request({
+    hostname: 'localhost', port: 5000, path: `/api/projects/${createRes.data.lead.id}/stage`, method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' }
+  }, { newStage: 'SUBSIDY_CREDITED' });
+  console.log('DBT Without Credit Reference:', dbtFail.status === 400 ? 'Blocked (400 Bad Request - Evidence Required)' : 'Unexpected status');
+
+  const dbtSuccess = await request({
+    hostname: 'localhost', port: 5000, path: `/api/projects/${createRes.data.lead.id}/stage`, method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' }
+  }, { newStage: 'SUBSIDY_CREDITED', creditReference: 'DBT-MAHA-2026-99824', note: 'Central DBT subsidy credited to Aadhaar-linked SBI bank account.' });
+  console.log('DBT With Verified Credit Reference:', dbtSuccess.data.message);
+
   // 10. Frontend Distribution Check
   console.log('\n10. Checking Frontend Index HTML Delivery...');
   const indexRes = await request({ hostname: 'localhost', port: 5000, path: '/', method: 'GET' });

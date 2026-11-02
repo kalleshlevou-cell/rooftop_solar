@@ -192,5 +192,55 @@ router.post('/:id/escalate', (req, res) => {
   });
 });
 
+// PATCH update project lifecycle stage (with Stage 8 DBT verification governance)
+router.patch('/:id/stage', (req, res) => {
+  const { id } = req.params;
+  const { newStage, note, creditReference, dbtReceiptNumber } = req.body;
+  const lead = db.getLeadById(id);
+  if (!lead) return res.status(404).json({ success: false, error: 'Project not found' });
+
+  // Stage 8 Governance: DBT Subsidy Credit requires verified credit evidence
+  if (newStage === 'SUBSIDY_CREDITED') {
+    if (!creditReference && !dbtReceiptNumber) {
+      return res.status(400).json({
+        success: false,
+        error: 'Stage 8 (Subsidy Credited) cannot be marked complete without verified credit confirmation (bank reference or National Portal DBT receipt number). Elapsed time alone cannot advance Stage 8.'
+      });
+    }
+  }
+
+  lead.status = newStage;
+  lead.history.push({
+    timestamp: new Date().toISOString(),
+    stage: newStage,
+    note: note || `Stage updated to ${newStage}${creditReference ? ` (Ref: ${creditReference})` : ''}`
+  });
+
+  if (newStage === 'SUBSIDY_CREDITED') {
+    lead.dbtDetails = {
+      creditReference: creditReference || dbtReceiptNumber,
+      confirmedAt: new Date().toISOString(),
+      amount: 78000
+    };
+  }
+
+  db.updateLead(lead.id, lead);
+
+  // Notify customer of stage change
+  const notif = formatNotification('STAGE_UPDATE', {
+    name: lead.name,
+    stage: newStage,
+    link: `http://localhost:5173/track/${lead.trackingToken}`
+  });
+  notif.leadId = lead.id;
+  db.addNotification(notif);
+
+  res.json({
+    success: true,
+    message: `Project stage successfully updated to ${newStage}`,
+    lead
+  });
+});
+
 export default router;
 
