@@ -1,18 +1,22 @@
-# Product Requirements Document (PRD)
+# Product Requirements Document (PRD v2.0)
 ## Rooftop Solar Lead Qualification, Quotation & Project Tracker Platform
+### Schedule A to the Master Software Development & Professional Services Agreement
 
-**Client Organization**: Company A, Nagpur (Maharashtra)  
+**Client Organization**: Company A Solar Pvt. Ltd., Nagpur (Maharashtra)  
 **Industry**: Distributed Rooftop Solar EPC (Residential & Commercial)  
 **Project Title**: Digital Lead Qualification, Instant Quotation & Milestone Project Tracking Suite  
-**Document Status**: Proposed Architecture & Requirements Specification (Pre-Build / Milestone 0)  
-**Budget & Duration**: ₹6,00,000 (INR 6 Lakh) | 6 Weeks  
-**Version**: 2.0 (Corrected Submission Edition)  
+**Document Reference**: Schedule A (PRD v2.0)  
+**Contractual Value**: ₹6,00,000 (INR 6 Lakh, Exclusive of Applicable GST)  
+**Project Duration**: 6 Calendar Weeks (42 Calendar Days)  
+**Warranty Period**: 60 Calendar Days Post-Deployment  
+**Change Request Rate**: ₹2,500 per developer hour (subject to signed approval)  
+**Document Status**: Formally Approved Functional Specification  
 
 ---
 
 ## 1. Executive Summary & Client Context
 
-Company A is a rooftop solar engineering, procurement, and construction (EPC) provider based in Nagpur, delivering rooftop solar installations across the 11 districts of the Vidarbha region in Maharashtra. 
+Company A is an established rooftop solar engineering, procurement, and construction (EPC) provider based in Nagpur, delivering residential and commercial rooftop solar installations across the 11 districts of the Vidarbha region in Maharashtra.
 
 ### 1.1 Verified Client Baseline (Supplied Facts)
 - **Workforce**: Approximately 75 staff members across sales, site survey, engineering, liaisoning, and administration.
@@ -26,7 +30,7 @@ Company A is a rooftop solar engineering, procurement, and construction (EPC) pr
 
 The platform is designed to remediate operational bottlenecks and financial leakages identified during the initial operational assessment.
 
-### 2.1 Stated Model Assumptions (Labelled for Validation)
+### 2.1 Stated Business Case Assumptions (Labelled for Validation)
 The financial justification relies on the following operational assumptions provided in the project brief, to be benchmarked during the first 30 days of platform deployment:
 
 1. **Lead Flow & Qualification Baseline (Assumptions)**:
@@ -77,6 +81,7 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
 - **3rd kW incremental capacity**: ₹18,000 for the additional 1 kW.
 - **Capacity above 3 kW**: Fixed maximum cap of **₹78,000** total central financial assistance.
 - **Disbursement Mechanism**: Direct Benefit Transfer (DBT) directly from the Central Government into the homeowner’s verified Aadhaar-linked bank account following DISCOM net-meter inspection.
+- **Client Governance**: The Client shall inspect, approve, and maintain the date-effective subsidy tables in the software against official Ministry notifications.
 
 ### 4.2 Vidarbha Solar Generation Benchmark (Engineering Assumption)
 - Solar generation in Vidarbha (Nagpur solar insolation ~5.2–5.6 kWh/m²/day) is engineered at **1,400 units (kWh) per kW per annum** (approx. 116.7 kWh/month per kW).
@@ -84,17 +89,18 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
 
 ### 4.3 Digital Personal Data Protection (DPDP) Act 2023 Compliance
 - MSEDCL Consumer Numbers, monthly consumption figures, and residential addresses are classified as personal data.
-- **Mandate**: Explicit digital consent must be obtained prior to reading or parsing electricity bills. Consumer numbers must support automated masking (`04901*****31`) across public screens, and customer tracking links must use non-sequential, cryptographically random tokens (`TRK-XXXXXXXX`).
+- **Technical Safeguards**: Purpose-limited consent capture, automated consumer number masking (`04901*****31`), encrypted transmission, and unguessable public tracking tokens (`TRK-XXXXXXXX`).
+- **Data Fiduciary**: Company A serves as the statutory Data Fiduciary determining the purpose and means of customer data processing.
 
 ---
 
 ## 5. User Personas & Workflows
 
 ### 5.1 Persona 1: Homeowner (Vidarbha Resident)
-- **Context**: Accessing the platform from a mobile phone (often Android via 4G/5G).
+- **Context**: Accessing the platform from a mobile phone (Android/iOS via mobile browser).
 - **Languages**: Marathi (मराठी), Hindi (हिंदी), and English.
 - **Mental Model**: Needs a "simple story first": What size solar system do I need? What is my net cost after government subsidy? When will I break even?
-- **Friction to Avoid**: Must not require password creation or app store downloads. Tracking must work via a single-click secure web link.
+- **Friction to Avoid**: Must not require password creation or app store downloads. Tracking operates via a single-click secure web token.
 
 ### 5.2 Persona 2: Sales Representative & Technical Surveyor
 - **Context**: Managing 30–50 incoming leads daily and conducting site visits.
@@ -102,7 +108,7 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
 
 ### 5.3 Persona 3: Project Coordinator & Operations Desk
 - **Context**: Coordinating installations across 8 stages, tracking MSEDCL junior engineer inspections, and monitoring DBT subsidy releases.
-- **Key Tasks**: Monitoring an SLA bottleneck dashboard that flags projects delayed at MSEDCL sanction or national portal disbursement beyond regulatory timeframes.
+- **Key Tasks**: Monitoring an internal SLA threshold dashboard that flags projects delayed at MSEDCL sanction or national portal disbursement beyond operational guidelines.
 
 ### 5.4 Persona 4: Founder & Managing Director
 - **Context**: Executive oversight of financial margins, team productivity, and agreement execution.
@@ -114,7 +120,7 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
 
 ### 6.1 Module 1: Lead Capture & MSEDCL Bill Upload
 - **FR-1.1 Occupancy Qualification**: Explicit selector for `Property Owner` vs `Tenant`. Selecting `Tenant` triggers an automated legal guidance prompt noting MSEDCL regulations regarding landlord NOC, automatically scheduling a 5-minute phone consultation rather than a field survey.
-- **FR-1.2 Roof Characteristics**: Captures Roof Type (Concrete Flat RCC, Metal/Tin Shed, Tiled/Slanted) and approximate shadow-free area (sq ft).
+- **FR-1.2 Roof Characteristics**: Captures Roof Type (Concrete Flat RCC, Metal/Tin Sheet, Tiled/Slanted) and approximate shadow-free area (sq ft).
 - **FR-1.3 Bill & Location Intake**: Captures monthly electricity bill (₹) and Vidarbha pincode (validated against 440xxx–445xxx postal regions).
 - **FR-1.4 Bill Image Upload**: Supports drag-and-drop or camera capture of MSEDCL bills (JPG, PNG, PDF) up to 10 MB.
 - **FR-1.5 DPDP Consent**: Mandatory consent checkbox detailing specific purpose limitation under DPDP Act 2023.
@@ -126,9 +132,10 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
   - Sanctioned Connected Load (kW)
   - Monthly Units Billed (kWh)
   - Total Billed Amount (₹)
-- **FR-2.2 Side-by-Side Verification Layout**: Displays the extracted parameters in an editable form directly alongside the bill image for one-click human confirmation before qualification.
-- **FR-2.3 Image Quality & Blurriness Detection**: Evaluates text confidence score. If confidence is below 60%, flags `Quality Warning: Image blurry or poorly lit` and prompts for re-upload or manual override.
-- **FR-2.4 DPDP Privacy Mask**: Provides a one-click toggle to mask consumer numbers (`04901*****31`) and addresses.
+- **FR-2.2 Side-by-Side Verification Layout**: Displays extracted parameters in an editable form directly alongside the bill image for one-click human confirmation before qualification.
+- **FR-2.3 Image Quality vs Character Confidence**: Distinguishes overall image sharpness/lighting detection from individual OCR character extraction confidence. If image quality is below 60%, flags `Quality Warning: Image blurry or dark` and prompts for re-upload or manual entry.
+- **FR-2.4 AI/OCR Responsibility Principle**: OCR and AI-generated values are preliminary extracted data and do not constitute verified customer information until reviewed and confirmed by authorized Client personnel. The platform provides manual correction and shall not autonomously approve or reject a lead based solely on OCR output.
+- **FR-2.5 DPDP Privacy Mask**: Provides a one-click toggle to mask consumer numbers (`04901*****31`) and addresses.
 
 ### 6.3 Module 3: Qualification & Sizing Engine
 - **FR-3.1 Non-Rejection Principle**: A low score never rejects a customer inquiry; it replaces an expensive ₹2,500 on-site surveyor trip with a structured 5-minute virtual telephone consultation.
@@ -148,7 +155,8 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
   (2 \times ₹30,000) + (1 \times ₹18,000) = ₹78,000 & \text{if } \text{kW} \ge 3 
   \end{cases}$$
 - **FR-4.3 Historical & Future Scheme Support**: Administrators can schedule future policy adjustments or test historical quotes against legacy rules (e.g., Phase II benchmark scheme).
-- **FR-4.4 Payback Math**: Incorporates 1,400 kWh/kW/yr generation, MSEDCL residential tariff slabs (~₹8.20/unit average), 4.5% annual tariff escalation, and 0.7% annual solar panel degradation across 25 years.
+- **FR-4.4 Subsidy Responsibility**: Subsidy calculations are based strictly on date-effective tables approved in writing by the Client. The platform does not guarantee statutory disbursement or government approval.
+- **FR-4.5 Payback Math**: Incorporates 1,400 kWh/kW/yr generation, MSEDCL residential tariff slabs (~₹8.20/unit average), 4.5% annual tariff escalation, and 0.7% annual solar panel degradation across 25 years.
 
 ### 6.5 Module 5: Customer Quotation Presentation & PDF Generator
 - **FR-5.1 "Simple Story First" Presentation**: Highlights the 4 primary decision metrics before technical schematics:
@@ -175,15 +183,15 @@ The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024)
   7. PM Surya Ghar DBT Claim Filed on National Portal
   8. Subsidy Credited to Bank Account
 - **FR-6.3 Document Locker**: In-browser download for survey reports, turnkey contracts, MSEDCL sanction letters, and DBT receipts.
-- **FR-6.4 Mock Payment Gateway**: Integrated UPI/NetBanking simulation for remitting the 10% booking advance.
+- **FR-6.4 Mock Payment Gateway (Simulation Mode)**: Integrated UPI/NetBanking simulation for demonstrating milestone advance workflows. Operates in simulation mode without transferring real money.
 
-### 6.7 Module 7: Project Coordinator & Stuck Projects Dashboard
-- **FR-7.1 SLA Thresholds**: Monitors regulatory thresholds (e.g., MSEDCL sanction SLA: 10 days; DBT release SLA: 20 days).
-- **FR-7.2 Stuck Alert Center**: Automatically flags delayed projects with color-coded urgency and enables one-click escalation to MSEDCL sub-division engineers.
+### 6.7 Module 7: Project Coordinator & Internal SLA Monitoring Dashboard
+- **FR-7.1 Internal Monitoring Thresholds**: Monitors internal operational guidelines (MSEDCL sanction monitoring threshold: 10 days; DBT release monitoring threshold: 20 days).
+- **FR-7.2 Bottleneck Alert Center**: Automatically flags delayed projects with color-coded urgency and enables one-click escalation to MSEDCL sub-division engineers.
 
-### 6.8 Module 8: Multilingual WhatsApp & SMS Dispatcher
-- **FR-8.1 Automated Triggers**: Emits status updates on every milestone transition.
-- **FR-8.2 Localization**: Pre-configured message templates in **Marathi (मराठी)**, **Hindi (हिंदी)**, and **English**.
+### 6.8 Module 8: Multilingual WhatsApp & SMS Dispatcher (Simulation Mode)
+- **FR-8.1 Automated Simulation Triggers**: Logs status updates on milestone transitions.
+- **FR-8.2 Localization**: Pre-configured message templates in **Marathi (मराठी)**, **Hindi (हिंदी)**, and **English**. Operates in simulation mode without dispatching paid live SMS/WhatsApp traffic unless live provider accounts are contracted.
 
 ---
 
@@ -193,3 +201,4 @@ The following areas are explicitly excluded from this release:
 1. Automated bot-based submission on the National Subsidy Portal (prohibited by CAPTCHA and Aadhaar OTP verification).
 2. Internal inventory purchasing and ERP warehouse logistics.
 3. Inverter IoT string-level telemetry and live generation monitoring.
+4. Live merchant payment gateway onboarding and commercial WhatsApp Business API fees (paid directly by Client under Clause 12 of the Agreement).

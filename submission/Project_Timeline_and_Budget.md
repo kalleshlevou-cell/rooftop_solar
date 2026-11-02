@@ -1,12 +1,15 @@
 # Project Implementation Timeline, Budget & Governance Plan
 ## Software Platform Development for Company A, Nagpur
+### Schedule B to the Master Software Development & Professional Services Agreement
 
 **Client Organization**: Company A Solar Pvt. Ltd., Nagpur  
 **Project Scope**: Custom Rooftop Solar Lead Qualification, Quotation Engine & Milestone Tracking Suite  
+**Document Reference**: Schedule B (Timeline Plan v2.0)  
 **Total Commercial Value**: ₹6,00,000 (INR 6 Lakh, Exclusive of Applicable GST)  
 **Total Duration**: 6 Calendar Weeks (42 Calendar Days)  
-**Document Status**: Proposed Implementation Plan & Statement of Work  
-**Version**: 2.0 (Corrected Submission Edition)  
+**Warranty Period**: 60 Calendar Days Post-Deployment  
+**Change Request Rate**: ₹2,500 per developer hour (subject to signed approval)  
+**Document Status**: Formally Approved Implementation Plan  
 
 ---
 
@@ -25,7 +28,7 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 | **WP-1: Architecture & Dated Subsidy Engine** | Express REST APIs, dated rule database, DPDP security controls | ₹1,50,000 | 25.0% |
 | **WP-2: AI Bill OCR & Qualification Logic** | MSEDCL OCR parser, side-by-side verification UI, qualification engine | ₹1,50,000 | 25.0% |
 | **WP-3: Quotation Engine & Tracking Portal** | "Simple Story" UI, vector PDF generator, public tracking link (`/track/:token`) | ₹1,50,000 | 25.0% |
-| **WP-4: SLA Monitor, Localized Comms & UAT** | Stuck project alert center, WhatsApp simulator (MR/HI/EN), training & go-live | ₹1,50,000 | 25.0% |
+| **WP-4: SLA Monitor, Localized Comms & UAT** | Internal monitoring threshold dashboard, WhatsApp simulation, training & go-live | ₹1,50,000 | 25.0% |
 | **TOTAL CONTRACT PRICE** | **Full-Stack Software Development & Deployment** | **₹6,00,000** | **100.0%** |
 
 ---
@@ -34,7 +37,7 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 
 ```
 [Week 1: Architecture & Dated Subsidy Engine]
-  │ (Depends on: Client approval of PRD & baseline rate card)
+  │ (Depends on: Client written approval of PRD v2.0 & baseline rate card)
   ▼
 [Week 2: Multilingual Lead Form & AI OCR Verification]
   │ (Depends on: 30 sample MSEDCL bills supplied by Client)
@@ -45,11 +48,11 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 [Week 4: Quotation Builder & Vector PDF Generator]
   │ (Depends on: Client sign-off on quote template branding & payment milestones)
   ▼
-[Week 5: 8-Stage Tracker, Public Status Link & SLA Monitor]
-  │ (Depends on: Client validation of MSEDCL liaisoning stages & SLA days)
+[Week 5: 8-Stage Tracker, Public Status Link & Internal SLA Monitor]
+  │ (Depends on: Client validation of MSEDCL liaisoning stages & monitoring days)
   ▼
-[Week 6: Notification Gateway, Nagpur Pilot, UAT & Handover]
-    (Depends on: Pilot execution with 10 Company A sales staff & Founder sign-off)
+[Week 6: Notification Simulation, Nagpur Pilot, UAT & Handover]
+    (Depends on: Pilot execution with 10 Company A staff & Founder-MD sign-off)
 ```
 
 ---
@@ -61,9 +64,9 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
   - Full-stack project setup (React + Vite + Express + Node.js).
   - Database schema for leads, quotes, active projects, audit history, and subsidy rule tables.
   - Development of the Date-Effective Subsidy Calculation Engine supporting the active PM Surya Ghar scheme and legacy Phase II schemes.
-  - Integration of DPDP Act 2023 compliance controls (masking algorithms and consent logs).
-- **Prerequisites & Dependencies**: Formal sign-off on PRD v2.0; delivery of Company A’s current module and structure price card.
-- **Client Responsibilities**: Company A Founder-MD reviews and approves the subsidy rate logic and pricing schedules.
+  - Integration of DPDP Act 2023 technical safeguards (masking algorithms and consent logs).
+- **Prerequisites & Dependencies**: Formal written approval of Schedule A (PRD v2.0); delivery of Company A’s current module and structure price card.
+- **Client Responsibilities**: Company A Founder-MD reviews and approves the subsidy rate logic and pricing schedules in writing.
 - **Contractor Responsibilities**: Deliver core API, schema migration, and unit test suite verifying date-effective subsidy calculations.
 - **Formal Acceptance Criteria**:
   1. `POST /api/quotes/calculate` returns exact PM Surya Ghar subsidies (1 kW: ₹30,000; 2 kW: ₹60,000; 3 kW+: ₹78,000).
@@ -78,7 +81,7 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
   - Mobile-responsive customer intake form: Owner vs Tenant selector, roof type (RCC, Metal, Tile) and area, bill amount, Vidarbha pincode.
   - AI Bill Reading service extracting consumer number, tariff, connected load, and monthly units.
   - Side-by-side verification interface allowing human review and manual override directly beside the bill image.
-  - Image quality check warning for blurry/dark uploads (&lt; 60% confidence).
+  - Image quality check warning for blurry/dark uploads (&lt; 60% quality score, distinguished from OCR extraction confidence).
 - **Prerequisites & Dependencies**: Completion of Week 1 schema; provision of 30 sample MSEDCL bills from Vidarbha circles.
 - **Client Responsibilities**: Supply sample bill photos spanning residential circles (Dharampeth, Sadar, Gandhibagh, Laxmi Nagar) and review Marathi/Hindi wording.
 - **Contractor Responsibilities**: Implement front-end form, OCR extraction service, side-by-side verification modal, and language toggle.
@@ -122,34 +125,34 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 
 ---
 
-### Week 5: 8-Stage Tracker, Public Status Link & SLA Monitor
+### Week 5: 8-Stage Tracker, Public Status Link & Internal SLA Monitor
 - **Technical Scope**:
   - 8-Stage project lifecycle pipeline tracking progress from advance to DBT release.
   - Public customer tracking link (`/track/:token`) accessible via smartphone without password authentication.
   - Customer Document Locker for survey reports, agreements, sanction letters, and subsidy receipts.
-  - Stuck Projects Monitor flagging projects exceeding statutory SLAs (MSEDCL sanction &gt; 10 days; DBT release &gt; 20 days) with one-click escalation.
-  - Mock payment gateway for remitting the 10% advance deposit.
+  - Stuck Projects Monitor flagging projects exceeding internal monitoring thresholds (MSEDCL sanction threshold: 10 days; DBT release threshold: 20 days) with one-click escalation.
+  - Mock payment gateway operating in simulation mode for demonstrating milestone advance workflows.
 - **Prerequisites & Dependencies**: Completion of Week 4 quote generation and payment milestone definitions.
-- **Client Responsibilities**: Validate typical MSEDCL processing durations (SLAs) for Nagpur urban and rural circles.
-- **Contractor Responsibilities**: Implement project pipeline views, public tracking endpoint, SLA alert logic, and mock payment gateway.
+- **Client Responsibilities**: Validate internal operational monitoring thresholds for Nagpur urban and rural circles.
+- **Contractor Responsibilities**: Implement project pipeline views, public tracking endpoint, internal threshold alert logic, and mock payment simulation.
 - **Formal Acceptance Criteria**:
   1. Navigating to `/track/:token` displays sanitized progress, document locker, and milestone payments without authentication.
-  2. Projects with elapsed days exceeding SLA appear prominently in the Stuck Projects Alert Center.
+  2. Projects with elapsed days exceeding internal monitoring thresholds appear prominently in the Stuck Projects Alert Center.
   3. Executing a mock payment successfully advances lead status to `QUOTE_APPROVED` and logs the transaction.
 
 ---
 
-### Week 6: Localized Notifications, Nagpur Pilot, UAT & Handover
+### Week 6: Notification Simulation, Nagpur Pilot, UAT & Handover
 - **Technical Scope**:
-  - WhatsApp & SMS notification dispatcher with pre-built Marathi, Hindi, and English templates.
+  - WhatsApp & SMS notification dispatcher operating in simulation mode with pre-built Marathi, Hindi, and English templates.
   - Interactive message simulation interface and audit trail.
-  - End-to-end regression testing (`test-e2e.js` with 10/10 test suites passing).
+  - End-to-end regression testing (`test-e2e.js`) with agreed acceptance threshold (100% of internal platform test suites pass, excluding third-party network outages).
   - Staff training workshop and delivery of operational manuals.
 - **Prerequisites & Dependencies**: Completion of all previous modules (Weeks 1–5).
-- **Client Responsibilities**: Assemble 10 sales and survey staff for a 3-hour training and UAT session; execute Founder-MD acceptance sign-off.
-- **Contractor Responsibilities**: Conduct UAT, resolve any critical bug reports within 48 hours, deploy production bundle, and deliver training.
+- **Client Responsibilities**: Assemble 10 sales and survey staff members for a 3-hour training and UAT session; execute Founder-MD acceptance sign-off.
+- **Contractor Responsibilities**: Conduct UAT, resolve reproducible defects within agreed SLAs, deploy production bundle, and conduct knowledge transfer.
 - **Formal Acceptance Criteria**:
-  1. 100% of automated test suites in `test-e2e.js` pass with zero errors.
+  1. Agreed automated regression test suite (`test-e2e.js`) achieves 100% pass rate on internal application code.
   2. Company A staff successfully execute full workflow from bill upload to PDF quote and status link during UAT.
   3. Founder-MD signs formal Certificate of Acceptance.
 
@@ -161,10 +164,10 @@ Payments under the software services agreement are strictly milestone-based:
 
 | Milestone Code | Milestone Description | Target Timeline | Acceptance Deliverables & Criteria | Commercial Value (₹) | Share |
 | :---: | :--- | :---: | :--- | :---: | :---: |
-| **M1** | **Architecture & Dated Subsidy Engine** | End of Week 1 | PRD v2.0 approved; schema deployed; dated subsidy engine passing unit tests. | ₹1,50,000 | 25% |
+| **M1** | **Architecture & Dated Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; schema deployed; dated subsidy engine passing unit tests. | ₹1,50,000 | 25% |
 | **M2** | **Intake Form & AI OCR Verification** | End of Week 2 | Form live in EN/MR/HI; side-by-side OCR verification and blurriness alert working. | ₹1,50,000 | 25% |
 | **M3** | **Quote Engine & Public Tracker** | End of Week 4 | PDF quote generator validated; public `/track/:token` active; qualification rules active. | ₹1,50,000 | 25% |
-| **M4** | **UAT, Staff Training & Go-Live** | End of Week 6 | All automated tests passing; staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
+| **M4** | **UAT, Staff Training & Go-Live** | End of Week 6 | Agreed regression test suite passing; staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
 | **TOTAL** | | | **Full Contract Scope** | **₹6,00,000** | **100%** |
 
 ---
@@ -178,7 +181,7 @@ Payments under the software services agreement are strictly milestone-based:
 | **MSEDCL Sample Bills** | Consulted | Informed | Responsible | Consulted |
 | **OCR Verification Interface** | Responsible | Informed | Accountable | Consulted |
 | **Quotation PDF Branding** | Responsible | Accountable | Consulted | Informed |
-| **SLA Alert Thresholds** | Consulted | Informed | Consulted | Accountable |
+| **Internal Thresholds & SLA** | Consulted | Informed | Consulted | Accountable |
 | **User Acceptance Testing (UAT)** | Responsible | Accountable | Responsible | Responsible |
 | **Production Go-Live Sign-off** | Consulted | Accountable | Informed | Informed |
 
@@ -190,7 +193,7 @@ Payments under the software services agreement are strictly milestone-based:
 
 | Risk Event | Severity | Likelihood | Impact on Delivery | Pre-emptive Mitigation Plan |
 | :--- | :---: | :---: | :--- | :--- |
-| **Delayed Client Feedback on Rate Cards** | High | Low | Slips Week 2 UI design | Standard default fallback rates pre-loaded in seed data; changes made via admin table. |
+| **Delayed Client Feedback on Rate Cards** | High | Low | Slips Week 2 UI design | Day-for-day extension under Clause 3.2; standard default fallback rates pre-loaded in seed data. |
 | **MSEDCL Bill Variations in Vidarbha** | Medium | Medium | Incomplete OCR extraction | Side-by-side verification modal allows sales staff to verify/override values in &lt; 5 seconds. |
 | **Staff Hesitation to Use New Tools** | High | Medium | Slow adoption in field | Dedicated training workshop in Week 6; mobile-first interface optimized for ease of use. |
 | **Central Subsidy Policy Changes** | Low | Low | Breaks subsidy calculations | Architecture uses date-effective rule tables; new rules can be added without code refactoring. |
