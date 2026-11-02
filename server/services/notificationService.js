@@ -99,3 +99,4 @@ export function formatNotification(templateKey, data = {}, lang = 'en') {
     providerMessageId: 'WA-' + Math.floor(10000000 + Math.random() * 90000000)
   };
 }
+

@@ -462,3 +462,4 @@ export default function AdminRulesView({ subsidyRules = [], pricingConfig = {}, 
     </div>
   );
 }
+

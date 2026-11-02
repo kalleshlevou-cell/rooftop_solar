@@ -245,8 +245,8 @@ export default function App() {
         onOpenWhatsApp={() => setIsWhatsAppOpen(true)}
       />
 
-      {/* Main Role Content Views */}
-      <main className="flex-1 pb-16">
+      {/* Main Role Content Views with comfortable spacing */}
+      <main className="flex-1 pb-20 pt-4 sm:pt-6">
         {currentRole === 'homeowner' && (
           <HomeownerForm
             t={t}

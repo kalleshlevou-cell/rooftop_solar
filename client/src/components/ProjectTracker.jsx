@@ -259,3 +259,4 @@ export default function ProjectTracker({ projects = [], stuckProjects = [], onAd
     </div>
   );
 }
+

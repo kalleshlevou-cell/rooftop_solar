@@ -109,3 +109,4 @@ export function qualifyLead({
     priority: score === 'High' ? 'P1_IMMEDIATE' : score === 'Medium' ? 'P2_STANDARD' : 'P3_CALL_ONLY'
   };
 }
+

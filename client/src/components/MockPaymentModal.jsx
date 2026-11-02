@@ -143,3 +143,4 @@ export default function MockPaymentModal({ isOpen, onClose, lead, amount = 10200
     </div>
   );
 }
+

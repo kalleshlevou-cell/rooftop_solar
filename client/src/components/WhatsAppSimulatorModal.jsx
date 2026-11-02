@@ -118,3 +118,4 @@ export default function WhatsAppSimulatorModal({ isOpen, onClose, notifications 
     </div>
   );
 }
+

@@ -127,3 +127,4 @@ npm run dev
 node test-e2e.js
 ```
 Runs 10 automated test suites verifying health check, lead scoring, AI OCR confirmation, dated subsidy evaluation, stuck project detection, public tracking links, and PDF quote data generation.
+

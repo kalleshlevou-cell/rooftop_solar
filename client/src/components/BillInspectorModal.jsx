@@ -335,3 +335,4 @@ export default function BillInspectorModal({ lead, isOpen, onClose, onConfirmUpd
     </div>
   );
 }
+

@@ -220,3 +220,4 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
     </div>
   );
 }
+

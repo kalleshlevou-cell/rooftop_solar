@@ -197,3 +197,4 @@ export function generateQuotePDF(quote, customer = {}) {
   const filename = `Quote-${quote.id || 'CompanyA-Solar'}-${customer.name?.replace(/\s+/g, '_') || 'Customer'}.pdf`;
   doc.save(filename);
 }
+
