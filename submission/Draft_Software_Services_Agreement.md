@@ -1,6 +1,7 @@
 # Software Development & Professional Services Agreement
 
-**Agreement Reference No**: CA-SW/2026/001  
+**Document Reference**: CA-SW/2026/001  
+**Document Classification**: DRAFT FOR TECHNICAL & COMMERCIAL ASSESSMENT (PRE-EXECUTION)  
 **Effective Date**: _____ day of _______________, 2026  
 **Place of Execution**: Nagpur, Maharashtra  
 
@@ -22,7 +23,7 @@
 
 **WHEREAS**:
 A. The Client is engaged in the business of engineering, procurement, and construction (EPC) of rooftop solar photovoltaic power plants across the Vidarbha region of Maharashtra, installing approximately 120 systems per month with an annual turnover of ₹30 to ₹38 Crore.  
-B. According to the Client's business case estimates (subject to operational validation), the Client currently experiences an estimated ₹86.88 Lakh annual economic opportunity loss resulting from unverified inquiries, an estimated 40% unqualified on-site survey visits, and quotation turnaround delays of approximately 3 business days.  
+B. According to the Client's initial business case estimates (subject to operational validation), the Client currently experiences an estimated ₹86.88 Lakh annual economic opportunity loss resulting from unverified inquiries, an estimated 40% unqualified on-site survey visits, and quotation turnaround delays of approximately 3 business days.  
 C. The Client desires to commission a custom web-based software suite encompassing digital lead qualification, MSEDCL electricity bill AI reading, side-by-side human OCR verification, date-effective subsidy calculation, vector PDF quotation generation, an 8-stage project tracker with public customer links, and an SLA bottleneck alert center.  
 D. The Consultant possesses the specialized technical skills, software engineering competence, and architectural experience required to design, develop, test, and deliver the customized software platform on the terms and conditions outlined herein.
 
@@ -53,12 +54,14 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 
 2.1 **Project Duration**: The development, testing, and deployment of the software platform shall be completed within **six (6) calendar weeks** from the Effective Date, subject to schedule adjustments under Clauses 3.2, 4.3, and 11.
 
-2.2 **Contract Value**: The total fixed-price fee for the complete scope of services under this Agreement shall be **₹6,00,000 (Indian Rupees Six Lakh Only)**, exclusive of applicable Goods and Services Tax (GST).
+2.2 **Contract Value & Invoicing**:
+1. The total fixed-price fee for the complete scope of services under this Agreement shall be **₹6,00,000 (Indian Rupees Six Lakh Only)**, exclusive of applicable Goods and Services Tax (GST).
+2. Applicable GST shall be charged at the prevailing statutory rate against valid tax invoices. Each Party shall be responsible for its respective tax obligations under applicable law.
 
 2.3 **Milestone Payment Schedule**: The Client shall remit payments to the Consultant based strictly on verified technical milestones and acceptance criteria:
 
 | Milestone | Deliverable Scope | Target Timeline | Verification & Acceptance Criteria | Amount Payable (₹) | Share |
-| :---: | :--- | :---: | :--- | :---: | :---: |
+|---|---|---|---|---:|---:|
 | **M1** | **Architecture, Data Schemas & Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; Express REST APIs live; dated subsidy engine passing test cases for PM Surya Ghar and Phase II schemes. | ₹1,50,000 | 25% |
 | **M2** | **Intake Form & AI OCR Verification** | End of Week 2 | Form deployed in Marathi/Hindi/English; side-by-side OCR verification and blurriness alert fully functional. | ₹1,50,000 | 25% |
 | **M3** | **Quotation Builder & Public Tracker** | End of Week 4 | Vector PDF quote generator operational; public `/track/:token` active; qualification routing verified. | ₹1,50,000 | 25% |
@@ -104,7 +107,7 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 
 ## 5. INTELLECTUAL PROPERTY RIGHTS & ASSIGNMENT
 
-5.1 **Assignment of Custom Intellectual Property**: Subject to full and final receipt and clearance of the total contract consideration (₹6,00,000 plus applicable taxes), the Consultant hereby irrevocably assigns, transfers, and conveys to Company A all worldwide copyright, title, interest, and intellectual property rights in and to the custom source code, database architectures, user interface workflows, schemas, algorithms, and documentation developed specifically for the Client under this Agreement.
+5.1 **Assignment of Custom Intellectual Property**: Subject to full and final receipt and clearance of the total contract consideration (₹6,00,000 plus applicable taxes), the Consultant hereby irrevocably assigns, transfers, and conveys to Company A all worldwide copyright, title, interest, and intellectual property rights in and to the custom source code, database architectures, user interface workflows, schemas, algorithms, and documentation developed specifically for the Client under this Agreement. The Consultant shall execute all further documents reasonably required to give effect to the assignment. The Consultant shall also obtain appropriate written IP assignments from any approved personnel or subcontractors contributing to the deliverables.
 
 5.2 **Consultant Pre-Existing IP & Tools**:
 1. The Consultant retains sole ownership of all pre-existing software, developer utility scripts, architectural libraries, design systems, algorithms, and methodologies owned, developed, or licensed by the Consultant prior to or independently of this Agreement ("Pre-Existing IP").
@@ -125,7 +128,9 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 2. The Consultant shall implement agreed technical safeguards, including purpose-limited consent checkboxes, database field masking (`04901*****31`), HTTPS/TLS encryption in transit, and unguessable public tracking tokens.
 3. The Client acknowledges that as the entity determining the purpose and means of customer data processing, the Client serves as the statutory **Data Fiduciary** under the DPDP Act 2023 and retains sole responsibility for lawful basis of data collection, statutory notices, customer grievance redressal, and regulatory compliance.
 
-6.3 **Data Deletion & Return Mandate**: Upon formal handover, contract expiration, or written request by the Client, the Consultant shall securely delete, purge, and destroy all Client personal data, sample electricity bills, customer lists, and database backups stored on local development environments within **fourteen (14) calendar days**, and shall deliver a formal written Certificate of Data Destruction to the Client.
+6.3 **Data Deletion & Scope of Destruction**:
+1. Upon formal handover, contract expiration, or written request by the Client, the Consultant shall securely delete, purge, and destroy all Client personal data, sample electricity bills, customer lists, and database copies stored on development machines, local workstations, staging servers, and temporary scratch storage under the Consultant's direct operational control within **fourteen (14) calendar days**, and shall deliver a formal written Certificate of Data Destruction to the Client.
+2. The Client acknowledges that this deletion obligation applies exclusively to environments directly controlled by the Consultant, and does not apply to production backups, database snapshots, or disaster recovery archives residing within Client-owned cloud accounts or third-party cloud infrastructure providers governed by the Client's independent retention policies.
 
 6.4 **Security Breach Notification SLA**: In the event of any confirmed or suspected unauthorized access, data breach, leak, or compromise of personal data or Client systems, the Consultant shall notify the Client in writing within **twenty-four (24) hours** of becoming aware of the incident, furnish a preliminary root-cause report within forty-eight (48) hours, and assist in remediation.
 
@@ -135,7 +140,7 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 
 ## 7. WARRANTIES, SERVICE LEVELS & INDEMNIFICATION
 
-7.1 **Performance Warranty**: The Consultant warrants that for a period of **sixty (60) calendar days** following production go-live (Milestone M4 sign-off), the platform shall operate substantially in accordance with the specifications in Schedule A (PRD v2.0). The Consultant shall remediate reproducible software bugs without additional charge during this warranty period.
+7.1 **Performance Warranty Period & Commencement**: The Consultant warrants that for a period of **sixty (60) calendar days** ("Warranty Period"), the platform shall operate substantially in accordance with the specifications in Schedule A (PRD v2.0). The Warranty Period shall commence on the date of **actual production deployment**, or within **fourteen (14) calendar days of Milestone M4 acceptance sign-off**, whichever occurs earlier, ensuring that any delay by the Client in rolling out production hosting does not indefinitely extend the Consultant's warranty obligations. The Consultant shall remediate reproducible software bugs without additional charge during this warranty period.
 
 7.2 **Warranty Support Hours & Response Times**:
 During the 60-day warranty period, the Consultant shall provide technical support under the following Service Level Agreement (SLA):
@@ -165,12 +170,13 @@ During the 60-day warranty period, the Consultant shall provide technical suppor
 8.2 **Termination for Convenience**: The Client may terminate this Agreement for convenience by providing **ten (10) business days'** written notice, provided the Client compensates the Consultant for all verified, completed milestones and a pro-rata share of active work-in-progress up to the effective termination date.
 
 8.3 **Limitation of Liability & Carve-Out Exceptions**:
-1. Except as provided in Clause 8.3.2, neither Party shall be liable to the other for indirect, incidental, special, or consequential damages. The Consultant’s aggregate cumulative financial liability under this Agreement shall be strictly capped at the **total fees actually paid by the Client hereunder (up to a maximum of ₹6,00,000)**.
-2. **Carve-Out Exceptions**: The liability cap in Clause 8.3.1 shall **NOT apply to**, and neither Party’s liability shall be limited with respect to:
-   (a) Breach of confidentiality obligations under Clause 6.1;
-   (b) Willful misconduct, gross negligence, or intentional fraud;
-   (c) Indemnification obligations for third-party intellectual property infringement under Clause 7.4;
-   (d) Direct regulatory penalties or damages arising from material, un-remediated violation of the DPDP Act 2023 directly attributable to gross negligence or intentional act of the Party.
+1. Except as expressly provided in Clause 8.3.2, neither Party shall be liable to the other Party under or in connection with this Agreement for any indirect, incidental, special, punitive, or consequential damages, or for loss of profits, business opportunities, or anticipated savings. Each Party's aggregate cumulative financial liability arising out of or related to this Agreement, whether in contract, tort (including negligence), or otherwise, shall be strictly capped at the **total fees actually paid by the Client to the Consultant hereunder (up to a maximum of ₹6,00,000)**.
+2. **Carve-Out Exceptions**: The liability cap in Clause 8.3.1 shall **NOT apply to**, and liability shall not be limited with respect to:
+   (a) Either Party's breach of its confidentiality obligations under Clause 6.1 (applying mutually to the breaching Party);
+   (b) Either Party's gross negligence, willful misconduct, or intentional fraud (applying mutually to the defaulting Party);
+   (c) The Consultant's third-party intellectual property indemnity obligations under Clause 7.4 (applying to the Consultant);
+   (d) Direct regulatory penalties or statutory damages arising from a material, un-remediated violation of the DPDP Act 2023 directly attributable to the gross negligence or intentional act of the responsible Party (applying to the defaulting Party); and
+   (e) The Client's payment obligations for verified milestones and approved Change Orders under Clause 2 and Clause 11 (applying to the Client).
 
 ---
 
@@ -225,7 +231,7 @@ During the 60-day warranty period, the Consultant shall provide technical suppor
 
 13.1 **Handover Assets & Secure Credential Transfer**:
 Following the clearance of the Milestone M4 payment and full settlement of the ₹6,00,000 consideration, the Consultant shall deliver the complete, unencumbered handover package to the Client:
-1. **Source Code**: Unminified, fully documented source code for both frontend and backend repositories transferred to a designated private Git repository owned by Company A, with complete version commit history.
+1. Source Code: Unminified, fully documented source code for both frontend and backend repositories transferred to a designated private Git repository owned by Company A, with complete version commit history.
 2. **Deployment Packages**: Production build configurations, container definitions (Dockerfile), and complete environment variable specifications (`.env.example`).
 3. **Database Architecture**: Full database schemas, collections, table definitions, indexing configurations, and automated migration scripts.
 4. **API Documentation**: Comprehensive OpenAPI / REST documentation specifying all endpoints, request/response JSON schemas, error codes, and authentication parameters.

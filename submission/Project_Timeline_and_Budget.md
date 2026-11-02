@@ -162,13 +162,13 @@ The ₹6,00,000 fixed-price fee is distributed across technical work packages as
 
 Payments under the software services agreement are strictly milestone-based:
 
-| Milestone Code | Milestone Description | Target Timeline | Acceptance Deliverables & Criteria | Commercial Value (₹) | Share |
-| :---: | :--- | :---: | :--- | :---: | :---: |
-| **M1** | **Architecture & Dated Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; schema deployed; dated subsidy engine passing unit tests. | ₹1,50,000 | 25% |
+| Milestone | Deliverable Scope | Target Timeline | Verification & Acceptance Criteria | Amount Payable (₹) | Share |
+|---|---|---|---|---:|---:|
+| **M1** | **Architecture, Data Schemas & Subsidy Engine** | End of Week 1 | Client approves PRD v2.0 in writing; schema deployed; dated subsidy engine passing unit tests. | ₹1,50,000 | 25% |
 | **M2** | **Intake Form & AI OCR Verification** | End of Week 2 | Form live in EN/MR/HI; side-by-side OCR verification and blurriness alert working. | ₹1,50,000 | 25% |
-| **M3** | **Quote Engine & Public Tracker** | End of Week 4 | PDF quote generator validated; public `/track/:token` active; qualification rules active. | ₹1,50,000 | 25% |
-| **M4** | **UAT, Staff Training & Go-Live** | End of Week 6 | Agreed regression test suite passing; staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
-| **TOTAL** | | | **Full Contract Scope** | **₹6,00,000** | **100%** |
+| **M3** | **Quotation Builder & Public Tracker** | End of Week 4 | PDF quote generator validated; public `/track/:token` active; qualification rules active. | ₹1,50,000 | 25% |
+| **M4** | **SLA Monitor, Nagpur Pilot, UAT & Handover** | End of Week 6 | Agreed regression test suite passing; staff training completed; Founder-MD sign-off. | ₹1,50,000 | 25% |
+| **TOTAL** | | | **Full Platform Delivery** | **₹6,00,000** | **100%** |
 
 ---
 
