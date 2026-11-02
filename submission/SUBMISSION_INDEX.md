@@ -1,17 +1,30 @@
-# Candidate Submission Package
-## Company A, Nagpur — Rooftop Solar EPC Lead Qualification, Quotation & Project Tracker
+# Candidate Submission Package (Corrected Edition)
+## Company A, Nagpur — Rooftop Solar Lead Qualification, Quotation & Project Tracker
 
-**Submitted By**: Full-Stack Software Engineering Candidate  
-**Client Organization**: Company A, Nagpur (Vidarbha Region, Maharashtra)  
-**Deliverables Included**:
-1. **Product Requirements Document (PRD)**: Comprehensive specification covering problem statement (₹86.88L/yr bleed), user personas, DPDP Act 2023 compliance, side-by-side AI OCR verification, qualification rules, dated subsidy tables, and 8-stage tracker.
-2. **Project Timeline & Budget**: ₹6 Lakh / 6-Week WBS, milestone payment schedule, risk assessment, and resource allocation.
-3. **Draft Turnkey Solar Agreement**: Legally vetted EPC contract tailored for MSEDCL net metering and the central PM Surya Ghar Muft Bijli Yojana (10%-40%-40%-10% payment schedule).
-4. **Live Working Software**: React + Node.js + Express platform with automated E2E test suite running at `http://localhost:5000`.
+**Client**: Company A Solar Pvt. Ltd., Nagpur (Maharashtra)  
+**Project Budget**: ₹6,00,000 (INR 6 Lakh)  
+**Timeline**: 6 Weeks  
+**Candidate Submission Type**: Software Engineering & Technical Architecture Package  
 
 ---
 
-## File Inventory in this Archive:
-- `PRD_Rooftop_Solar_Platform.md` — Product Requirements Document (PRD)
-- `Project_Timeline_and_Budget.md` — 6-Week Project Timeline & ₹6 Lakh Budget
-- `Draft_Solar_Turnkey_Agreement.md` — Legal Turnkey EPC Contract Draft
+## Deliverables in this Archive:
+
+1. **`PRD_Rooftop_Solar_Platform.md`**  
+   - Comprehensive Product Requirements Document (PRD v2.0).
+   - Distinguishes confirmed inputs, operational assumptions (e.g. ₹86.88L modeled bleed: 40% unqualified surveys @ ₹2,500 + 4% lost sales @ ₹36k margin), and verified facts (PM Surya Ghar rules: ₹30k/kW up to 2kW, ₹18k for 3rd kW, cap ₹78k).
+   - Formulates target project KPIs (&lt; 15% unqualified surveys, &gt; 90% same-day quotes, &ge; 50% status call reduction) as proposed goals with formal measurement criteria.
+   - Covers user personas, DPDP Act 2023 compliance, side-by-side OCR verification, date-effective subsidy engine, and 8-stage tracker.
+
+2. **`Project_Timeline_and_Budget.md`**  
+   - 6-Week Implementation Timeline & ₹6 Lakh Budget Allocation Plan.
+   - Weekly Work Breakdown Structure (WBS) with explicit technical dependencies, client responsibilities, and formal acceptance criteria.
+   - Milestone Payment Schedule tied to client approvals (4 milestones of ₹1,50,000 / 25% each).
+   - RACI Responsibility Assignment Matrix and Risk Management Plan.
+
+3. **`Draft_Software_Services_Agreement.md`**  
+   - Master Software Development & Professional Services Agreement governing the design, engineering, testing, delivery, and warranty of the custom software platform for Company A Solar Pvt. Ltd. (Nagpur).
+   - Includes work packages, acceptance testing protocols, IP ownership ("work-for-hire" upon payment), DPDP Act 2023 data confidentiality covenants, 60-day post-launch warranty, and dispute arbitration in Nagpur, Maharashtra.
+
+4. **Working Software Implementation**:
+   - Production React + Node.js + Express platform running live on `http://localhost:5000` with 10 passing automated end-to-end regression tests (`test-e2e.js`).

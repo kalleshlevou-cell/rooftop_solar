@@ -1,170 +1,195 @@
 # Product Requirements Document (PRD)
-## Rooftop Solar Lead Qualification, Instant Quotation & Project Tracking Platform
+## Rooftop Solar Lead Qualification, Quotation & Project Tracker Platform
 
-**Client**: Company A, Nagpur (Maharashtra)  
-**Target Market**: Residential & Small Commercial Rooftop Solar across the Vidarbha Region  
-**Target Revenue / Scale**: ₹30–38 Crore/year | ~120 Installations/month | 75 Staff  
-**Budget & Timeline**: ₹6 Lakh | 6 Weeks  
-**Version**: 1.0 (Production Release)  
-**Author**: Lead Systems Architect & Full-Stack Engineering Team  
-
----
-
-## 1. Executive Summary
-
-Company A is a premier rooftop solar engineering, procurement, and construction (EPC) company based in Nagpur, installing approximately 120 rooftop solar systems per month across Vidarbha. Today, lead intake occurs haphazardly across WhatsApp messages and Excel sheets. Sales representatives manually call every lead to request electricity bill photos, after which physical surveyors visit customer rooftops without prior qualification. Turnaround times for quotations currently stretch to three days, and project tracking post-advance relies on disconnected spreadsheets.
-
-This platform provides an end-to-end digital operating system that automates lead qualification via AI-assisted MSEDCL bill extraction, generates same-day quotes incorporating date-versioned government subsidies, tracks installations across an 8-stage pipeline with automated customer tracking links, and alerts coordinators to project bottlenecks.
+**Client Organization**: Company A, Nagpur (Maharashtra)  
+**Industry**: Distributed Rooftop Solar EPC (Residential & Commercial)  
+**Project Title**: Digital Lead Qualification, Instant Quotation & Milestone Project Tracking Suite  
+**Document Status**: Proposed Architecture & Requirements Specification (Pre-Build / Milestone 0)  
+**Budget & Duration**: ₹6,00,000 (INR 6 Lakh) | 6 Weeks  
+**Version**: 2.0 (Corrected Submission Edition)  
 
 ---
 
-## 2. Problem Statement & Financial Bleed Analysis
+## 1. Executive Summary & Client Context
 
-Company A processes approximately **1,400 inquiries per month**, of which only **25% (350)** are genuine, viable rooftop solar buyers.
+Company A is a rooftop solar engineering, procurement, and construction (EPC) provider based in Nagpur, delivering rooftop solar installations across the 11 districts of the Vidarbha region in Maharashtra. 
 
-```
-+----------------------------------------------------------------------------------------------------+
-|                                    ANNUAL FINANCIAL BLEED: ₹86.88 LAKH                             |
-+----------------------------------------------------------------------------------------------------+
-| 1. Wasted Physical Surveys (40% of 220 monthly surveys sent to non-viable leads):                  |
-|    88 wasted visits/month × ₹2,500 surveyor cost × 12 months                     = ₹26.40 Lakh/yr  |
-|                                                                                                    |
-| 2. Quote Latency Customer Drop-off (3-day delay loses 4% of genuine buyers to faster rivals):     |
-|    14 lost orders/month × ₹2,00,000 order value × 18% gross margin × 12 months   = ₹60.48 Lakh/yr  |
-|                                                                                                    |
-| TOTAL ANNUAL LOSS PREVENTED                                                      = ₹86.88 Lakh/yr  |
-+----------------------------------------------------------------------------------------------------+
-```
-
-### Core Operational Bottlenecks:
-1. **Unqualified Survey Trips**: 40% of all on-site visits are conducted for tenants (who lack rooftop ownership or landlord NOC) or homeowners with electricity bills under ₹1,000/month where payback is unattractive.
-2. **Slow Quotation Turnaround**: Manually computing quotes in Excel takes up to 72 hours, resulting in lead attrition to faster competitors.
-3. **High Inbound Call Volume**: Customers continuously call sales staff to check the status of DISCOM sanctions, net meter installation, and government subsidy disbursements.
+### 1.1 Verified Client Baseline (Supplied Facts)
+- **Workforce**: Approximately 75 staff members across sales, site survey, engineering, liaisoning, and administration.
+- **Annual Turnover**: ₹30 Crore to ₹38 Crore per annum.
+- **Installation Volume**: Approximately 120 rooftop solar installations commissioned per month.
+- **Current Operational Workflow**: Leads originate via WhatsApp and manual telephone inquiries, logged manually in spreadsheets. Sales representatives call each lead to request electricity bill photographs. Field surveyors are dispatched for physical roof measurements before qualification. Quotations are drafted manually in Microsoft Excel (requiring ~3 days). Net metering applications and PM Surya Ghar subsidy claims with MSEDCL (Maharashtra State Electricity Distribution Co. Ltd.) are tracked across disconnected sheets.
 
 ---
 
-## 3. Goals & Key Performance Indicators (KPIs)
+## 2. Business Problem & Financial Impact Analysis
 
-| Success Metric | Historical Baseline | Project Target | Platform Measured Result |
-| :--- | :--- | :--- | :--- |
-| **Unqualified Survey Visits** | 40% of surveys | **&lt; 15%** | **12.8%** *(Beat Target)* |
-| **Same-Day Quotation Delivery** | ~15% of surveys | **&gt; 90%** | **91.4%** *(Beat Target)* |
-| **Inbound Status Inquiries** | Baseline calls | **-50%** | **-52%** *(Beat Target)* |
-| **Survey Cost Saved** | ₹0 | Maximized | **₹26.40 Lakh/yr Saved** |
+The platform is designed to remediate operational bottlenecks and financial leakages identified during the initial operational assessment.
+
+### 2.1 Stated Model Assumptions (Labelled for Validation)
+The financial justification relies on the following operational assumptions provided in the project brief, to be benchmarked during the first 30 days of platform deployment:
+
+1. **Lead Flow & Qualification Baseline (Assumptions)**:
+   - Total Monthly Inquiries: ~1,400 leads/month.
+   - Genuine Viable Buyer Proportion: 25% (~350 leads/month).
+   - Monthly Field Surveys Conducted: ~220 physical surveys/month.
+   - **Unqualified Survey Proportion**: **40% of surveys (88 visits/month)** are conducted for properties that will never transact (primarily tenants lacking landlord NOC or consumers with monthly electricity bills under ₹1,000 where payback is extended).
+   - **Unit Cost per Physical Survey**: Estimated at **₹2,500 per survey visit** (incorporating surveyor compensation, round-trip travel across Nagpur/Vidarbha, and measuring equipment depreciation).
+
+2. **Quotation Turnaround & Opportunity Loss (Assumptions)**:
+   - Current Quote Turnaround Time: **3 business days (72 hours)**.
+   - Lead Attrition to Faster Competitors: **4% of genuine leads (14 orders/month)** are lost to competing installers providing faster turnaround.
+   - Average Order Value: **₹2,00,000** per rooftop solar system (approx. 3 kW system).
+   - Contractor Gross Margin: **18%** (₹36,000 gross margin per lost installation).
+
+### 2.2 Financial Bleed Model
+
+$$\begin{aligned}
+\text{Annual Wasted Survey Cost} &= 88 \text{ wasted visits/mo} \times ₹2,500 \times 12 \text{ months} = \mathbf{₹26,40,000 / \text{year}} \\
+\text{Annual Lost Gross Margin} &= 14 \text{ lost sales/mo} \times ₹36,000 \text{ margin} \times 12 \text{ months} = \mathbf{₹60,48,000 / \text{year}} \\
+\hline
+\mathbf{\text{Total Estimated Annual Bleed}} &= \mathbf{₹86,88,000 / \text{year}}
+\end{aligned}$$
+
+*Note: While the ₹86.88 Lakh figure represents a modeled economic opportunity loss, post-launch analytics will measure actual field metrics against these baseline assumptions.*
 
 ---
 
-## 4. User Personas
+## 3. Project Objectives & Target Success Metrics (Proposed KPIs)
 
-### 4.1 Homeowner / Commercial Prospect
-- **Device**: Mobile smartphones (Android/iOS).
+The software project aims to achieve the following performance targets within 90 days of production go-live:
+
+| Performance Metric | Baseline (Assumed) | Project Target Goal | Validation & Measurement Methodology |
+| :--- | :---: | :---: | :--- |
+| **Unqualified Physical Survey Rate** | 40% of surveys | **&lt; 15%** | Measured as: $\frac{\text{Survey visits resulting in non-viable quotes}}{\text{Total physical survey visits completed}} \times 100$ |
+| **Same-Day Quotation Turnaround** | ~15% of surveys | **&gt; 90%** | Measured as: $\frac{\text{Quotes sent within 24 hours of bill submission}}{\text{Total viable inquiries processed}} \times 100$ |
+| **Routine Inbound Status Calls** | Estimated baseline | **&ge; 50% Reduction** | Measured via CRM incoming call tags for DISCOM sanction, installation, and subsidy status checks. |
+
+*(Cautionary Note: These percentage reductions represent targeted project performance goals for the platform, not historical or pre-existing achievements.)*
+
+---
+
+## 4. Regulatory & Technical Grounding (Verified Facts vs Constraints)
+
+### 4.1 Verified Policy: PM Surya Ghar Muft Bijli Yojana
+The Central Residential Solar Rooftop Scheme (notified by MNRE in February 2024) replaces all legacy benchmark subsidy schemes for residential rooftop solar:
+- **Up to 2 kW capacity**: ₹30,000 per kW (e.g., ₹60,000 for a 2 kW system).
+- **3rd kW incremental capacity**: ₹18,000 for the additional 1 kW.
+- **Capacity above 3 kW**: Fixed maximum cap of **₹78,000** total central financial assistance.
+- **Disbursement Mechanism**: Direct Benefit Transfer (DBT) directly from the Central Government into the homeowner’s verified Aadhaar-linked bank account following DISCOM net-meter inspection.
+
+### 4.2 Vidarbha Solar Generation Benchmark (Engineering Assumption)
+- Solar generation in Vidarbha (Nagpur solar insolation ~5.2–5.6 kWh/m²/day) is engineered at **1,400 units (kWh) per kW per annum** (approx. 116.7 kWh/month per kW).
+- **Constraint**: Generation formulas are fixed engineering constants configurable by administrators, never estimated or hallucinated by AI models.
+
+### 4.3 Digital Personal Data Protection (DPDP) Act 2023 Compliance
+- MSEDCL Consumer Numbers, monthly consumption figures, and residential addresses are classified as personal data.
+- **Mandate**: Explicit digital consent must be obtained prior to reading or parsing electricity bills. Consumer numbers must support automated masking (`04901*****31`) across public screens, and customer tracking links must use non-sequential, cryptographically random tokens (`TRK-XXXXXXXX`).
+
+---
+
+## 5. User Personas & Workflows
+
+### 5.1 Persona 1: Homeowner (Vidarbha Resident)
+- **Context**: Accessing the platform from a mobile phone (often Android via 4G/5G).
 - **Languages**: Marathi (मराठी), Hindi (हिंदी), and English.
-- **Needs**: Transparent, jargon-free solar feasibility assessment showing system capacity, net cost after PM Surya Ghar subsidy, payback timeline, and 25-year bill savings.
-- **Friction to eliminate**: Long registration forms, password requirements, and opaque project progress.
+- **Mental Model**: Needs a "simple story first": What size solar system do I need? What is my net cost after government subsidy? When will I break even?
+- **Friction to Avoid**: Must not require password creation or app store downloads. Tracking must work via a single-click secure web link.
 
-### 4.2 Sales Executive & Site Surveyor
-- **Device**: Tablets and desktop workstations.
-- **Needs**: Rapid qualification queue, OCR-extracted MSEDCL bill verification, one-click quote generation, and direct conversion of low scores into 5-minute phone calls instead of ₹2,500 trips.
+### 5.2 Persona 2: Sales Representative & Technical Surveyor
+- **Context**: Managing 30–50 incoming leads daily and conducting site visits.
+- **Key Tasks**: Rapidly verifying AI-extracted bill parameters, confirming roof type, scheduling priority on-site surveys for viable leads, and initiating virtual phone consultations for low-scoring prospects.
 
-### 4.3 Project Coordinator
-- **Device**: Desktop browser.
-- **Needs**: End-to-end milestone tracker from advance receipt to DBT subsidy release, SLA delay monitoring (e.g. MSEDCL inspection pending &gt; 10 days), and one-click escalation tools.
+### 5.3 Persona 3: Project Coordinator & Operations Desk
+- **Context**: Coordinating installations across 8 stages, tracking MSEDCL junior engineer inspections, and monitoring DBT subsidy releases.
+- **Key Tasks**: Monitoring an SLA bottleneck dashboard that flags projects delayed at MSEDCL sanction or national portal disbursement beyond regulatory timeframes.
 
-### 4.4 Founder & Managing Director
-- **Needs**: Macro revenue analytics, survey cost savings tally, pricing and dated subsidy table governance, and final contract sign-off oversight.
+### 5.4 Persona 4: Founder & Managing Director
+- **Context**: Executive oversight of financial margins, team productivity, and agreement execution.
+- **Key Tasks**: Reviewing monthly survey savings tallies, updating pricing tables, approving dated subsidy scheme revisions, and signing turnkey customer agreements.
 
 ---
 
-## 5. Functional Requirements
+## 6. Functional Requirements (System Architecture)
 
-### FR-1: Lead Capture & MSEDCL Bill Upload
-- **FR-1.1**: Collects occupancy type (`Owner` vs `Tenant`). If `Tenant` is selected, displays a polite advisory clarifying MSEDCL landlord NOC rules and routes the prospect to a virtual phone consultation.
-- **FR-1.2**: Collects rooftop parameters: Roof Type (Flat RCC Concrete, Metal/Tin Sheet, Slanted Clay Tile) and approximate shadow-free area (sq ft).
-- **FR-1.3**: Collects monthly electricity bill (₹) and Vidarbha/Nagpur pincode (validates 440xxx–445xxx series).
-- **FR-1.4**: Drag-and-drop or file upload for MSEDCL Mahavitaran electricity bills (PNG, JPG, PDF) with pre-loaded one-click sample profiles.
-- **FR-1.5 DPDP Act 2023 Consent**: Explicit checkbox capturing digital consent for processing consumer number and address data strictly for solar feasibility evaluation.
+### 6.1 Module 1: Lead Capture & MSEDCL Bill Upload
+- **FR-1.1 Occupancy Qualification**: Explicit selector for `Property Owner` vs `Tenant`. Selecting `Tenant` triggers an automated legal guidance prompt noting MSEDCL regulations regarding landlord NOC, automatically scheduling a 5-minute phone consultation rather than a field survey.
+- **FR-1.2 Roof Characteristics**: Captures Roof Type (Concrete Flat RCC, Metal/Tin Shed, Tiled/Slanted) and approximate shadow-free area (sq ft).
+- **FR-1.3 Bill & Location Intake**: Captures monthly electricity bill (₹) and Vidarbha pincode (validated against 440xxx–445xxx postal regions).
+- **FR-1.4 Bill Image Upload**: Supports drag-and-drop or camera capture of MSEDCL bills (JPG, PNG, PDF) up to 10 MB.
+- **FR-1.5 DPDP Consent**: Mandatory consent checkbox detailing specific purpose limitation under DPDP Act 2023.
 
-### FR-2: AI Bill Reading & Side-by-Side OCR Verification
-- **FR-2.1**: Extracts essential billing parameters from MSEDCL bills:
-  - Consumer Number (e.g., `049010045231`)
-  - Tariff Category (e.g., `LT-I B Residential`)
-  - Sanctioned Load (e.g., `3.5 kW`)
-  - Monthly Units Billed (e.g., `340 kWh`)
-  - Total Billed Amount (e.g., `₹3,200`)
-- **FR-2.2 Side-by-Side Verification**: Displays the extracted parameters directly adjacent to the bill image. Both sales staff and homeowners can edit values before final confirmation.
-- **FR-2.3 Image Quality & Blurriness Detection**: If image resolution or lighting yields &lt; 60% confidence, displays a prominent warning prompting the user to re-upload a sharper image or adjust inputs manually.
-- **FR-2.4 DPDP Masking**: Provides a toggle to mask consumer numbers (`04901*****31`) and addresses in accordance with Section 6 of the DPDP Act 2023.
+### 6.2 Module 2: AI Bill Reading & Side-by-Side OCR Verification
+- **FR-2.1 Extraction Schema**: Automatically extracts:
+  - MSEDCL Consumer Number (12 digits)
+  - Tariff Category (LT-I Residential)
+  - Sanctioned Connected Load (kW)
+  - Monthly Units Billed (kWh)
+  - Total Billed Amount (₹)
+- **FR-2.2 Side-by-Side Verification Layout**: Displays the extracted parameters in an editable form directly alongside the bill image for one-click human confirmation before qualification.
+- **FR-2.3 Image Quality & Blurriness Detection**: Evaluates text confidence score. If confidence is below 60%, flags `Quality Warning: Image blurry or poorly lit` and prompts for re-upload or manual override.
+- **FR-2.4 DPDP Privacy Mask**: Provides a one-click toggle to mask consumer numbers (`04901*****31`) and addresses.
 
-### FR-3: Lead Qualification & Action Engine
-- **Rule 1 (Low Score Never Rejects)**: A low qualification score never turns away a lead; it simply substitutes an expensive ₹2,500 on-site surveyor visit with a focused 5-minute phone consultation.
-- **Rule 2 (Score Tiers)**:
-  - `High`: Owner + Monthly Bill &gt; ₹2,500 → Dispatches priority on-site surveyor visit today.
-  - `Medium`: Owner + Monthly Bill ₹1,000–₹2,500 → Standard surveyor visit within 48 hours.
-  - `Low (tenant)`: Tenant status → Routes to 5-minute virtual phone consult; logs ₹2,500 survey savings.
-  - `Low (small bill)`: Owner + Monthly Bill &lt; ₹1,000 → Routes to 1 kW micro-solar advice call; logs ₹2,500 survey savings.
-- **Rule 3 (System Sizing Formula)**:
-  $$\text{Recommended kW} = \text{Round}\left(\frac{\text{Monthly kWh Units}}{116.7}\right)$$
-  *(Derived from 1,400 kWh/kW/year divided by 12 months).*
+### 6.3 Module 3: Qualification & Sizing Engine
+- **FR-3.1 Non-Rejection Principle**: A low score never rejects a customer inquiry; it replaces an expensive ₹2,500 on-site surveyor trip with a structured 5-minute virtual telephone consultation.
+- **FR-3.2 Scoring Classification**:
+  - `High`: Owner + Monthly Bill &gt; ₹2,500 → Priority Same-Day Physical Survey Visit.
+  - `Medium`: Owner + Monthly Bill ₹1,000–₹2,500 → Standard Survey Visit (within 48 hours).
+  - `Low (tenant)`: Tenant status → 5-Minute Phone Consultation on Landlord Consent (Logs ₹2,500 survey savings).
+  - `Low (small bill)`: Owner + Monthly Bill &lt; ₹1,000 → 1 kW Micro-Solar Guidance Call (Logs ₹2,500 survey savings).
+- **FR-3.3 System Sizing Formula**:
+  $$\text{Recommended Capacity (kW)} = \text{Round}\left(\frac{\text{Monthly Consumption (kWh)}}{116.7}\right)$$
 
-### FR-4: Date-Effective Subsidy & Payback Calculation (The Hard Part)
-- **FR-4.1 Dated Rule Evaluation**: Subsidies are stored in date-bounded rule tables (`effectiveFrom` to `effectiveTo`). Quotes calculate subsidies based on the quote creation date, not arbitrary AI outputs.
-- **FR-4.2 PM Surya Ghar Scheme (Active Central Scheme: 2024-02-15 to Present)**:
-  - Up to 2 kW: ₹30,000 per kW (₹60,000 for 2 kW).
-  - 3rd kW: ₹18,000.
-  - 3 kW and above: Capped at **₹78,000** total.
-- **FR-4.3 Historical Phase II Rule (Legacy: 2022-01-01 to 2024-02-14)**:
-  - Preserved for auditing: 40% benchmark cost up to 3 kW, 20% from 4 to 10 kW.
-- **FR-4.4 Fixed Generation Constant**: Calculated strictly from **1,400 units (kWh) per kW per year**, editable only through administrator settings.
-- **FR-4.5 Payback Formula**:
-  $$\text{Payback (Years)} = \frac{\text{Gross EPC Cost} - \text{PM Surya Ghar Subsidy}}{\text{Annual Generation} \times \text{Average Grid Tariff (₹8.20/unit)}}$$
+### 6.4 Module 4: Dated Subsidy Rules & Pricing Engine
+- **FR-4.1 Date-Bounded Rule Evaluation**: Subsidies are stored in date-effective tables (`effectiveFrom` and `effectiveTo`). The system queries the active rule corresponding to the quote creation date.
+- **FR-4.2 PM Surya Ghar Calculation**:
+  $$\text{Subsidy} = \begin{cases} 
+  \text{kW} \times ₹30,000 & \text{if } \text{kW} \le 2 \\
+  (2 \times ₹30,000) + (1 \times ₹18,000) = ₹78,000 & \text{if } \text{kW} \ge 3 
+  \end{cases}$$
+- **FR-4.3 Historical & Future Scheme Support**: Administrators can schedule future policy adjustments or test historical quotes against legacy rules (e.g., Phase II benchmark scheme).
+- **FR-4.4 Payback Math**: Incorporates 1,400 kWh/kW/yr generation, MSEDCL residential tariff slabs (~₹8.20/unit average), 4.5% annual tariff escalation, and 0.7% annual solar panel degradation across 25 years.
 
-### FR-5: Customer Quote Presentation & PDF Export
-- **FR-5.1 "Simple Story First" Layout**: Displays the 4 primary decision metrics before any technical jargon:
-  1. System Capacity (e.g. 3 kW)
-  2. Net Cost After Subsidy (₹1,02,000)
-  3. Payback Period (3.0 Years)
-  4. Estimated Annual Savings (₹34,440/year)
-- **FR-5.2 Technical & Component Breakdown**: Interactive toggles for module tiers (Tier-1 Mono PERC DCR vs High-Gain TOPCon Bifacial) and structures (Standard Elevated GI vs High-Rise Usable Terrace).
-- **FR-5.3 25-Year Financial & Degradation Projections**: Models 0.7%/yr PV degradation and 4.5%/yr grid tariff inflation over 25 years.
-- **FR-5.4 Printable / Downloadable PDF**: Generates client-side, high-resolution vector PDF quotes complete with Company A branding, technical scope of work, warranty guarantees, and 4 milestone payment stages.
+### 6.5 Module 5: Customer Quotation Presentation & PDF Generator
+- **FR-5.1 "Simple Story First" Presentation**: Highlights the 4 primary decision metrics before technical schematics:
+  1. System Sizing (kW)
+  2. Net Cost After Subsidy (₹)
+  3. Payback Period (Years)
+  4. Estimated Annual Savings (₹/year)
+- **FR-5.2 Milestone Payment Schedule**:
+  - Milestone 1: 10% Booking Advance
+  - Milestone 2: 40% DISCOM Sanction & Material Delivery
+  - Milestone 3: 40% Installation & Wiring Completion
+  - Milestone 4: 10% Net Meter Energization & Subsidy Claim
+- **FR-5.3 Vector PDF Generation**: Produces a branded, downloadable quote PDF incorporating Company A credentials, customer details, warranty schedules, and payment terms.
 
-### FR-6: Public Customer Status Tracker (`/track/:token`)
-- **FR-6.1 Zero-Login Phone Access**: Accessible by homeowner directly from SMS/WhatsApp link using a secure token.
-- **FR-6.2 8-Stage Visual Progress Bar**:
+### 6.6 Module 6: Public Customer Status Link (`/track/:token`)
+- **FR-6.1 Zero-Login Architecture**: Customers access their live project status via secure tracking tokens without requiring usernames or passwords.
+- **FR-6.2 8-Stage Progress Tracker**:
   1. Lead Qualified & AI Sized
   2. Roof Survey Completed
-  3. Quote Approved & 10% Advance Paid
-  4. MSEDCL Net Metering Application Filed
-  5. Solar Panels & Inverter Installed on Roof
-  6. MSEDCL Net Meter Tested & Energized
+  3. Quote Approved & Advance Paid
+  4. MSEDCL Net Metering Application Submitted
+  5. Solar Equipment Installed on Roof
+  6. MSEDCL Inspection & Bi-directional Net Meter Energized
   7. PM Surya Ghar DBT Claim Filed on National Portal
-  8. Subsidy (₹78,000) Credited to Bank Account
-- **FR-6.3 Document Locker**: In-app downloads for survey reports, signed agreements, MSEDCL sanction letters, and commissioning certificates.
-- **FR-6.4 Mock Payment Gateway**: Integrated UPI/NetBanking simulation enabling the customer to pay the 10% advance deposit.
+  8. Subsidy Credited to Bank Account
+- **FR-6.3 Document Locker**: In-browser download for survey reports, turnkey contracts, MSEDCL sanction letters, and DBT receipts.
+- **FR-6.4 Mock Payment Gateway**: Integrated UPI/NetBanking simulation for remitting the 10% booking advance.
 
-### FR-7: Project Coordinator Tracker & Stuck Projects SLA Monitor
-- **FR-7.1 Bottleneck Alert Center**: Automatically flags installations exceeding statutory SLAs:
-  - MSEDCL Net Metering sanction pending &gt; 10 days.
-  - National Portal DBT disbursement pending &gt; 20 days.
-- **FR-7.2 One-Click Escalation**: Triggers formal escalation notices to MSEDCL sub-division engineers and notifies customers via WhatsApp.
+### 6.7 Module 7: Project Coordinator & Stuck Projects Dashboard
+- **FR-7.1 SLA Thresholds**: Monitors regulatory thresholds (e.g., MSEDCL sanction SLA: 10 days; DBT release SLA: 20 days).
+- **FR-7.2 Stuck Alert Center**: Automatically flags delayed projects with color-coded urgency and enables one-click escalation to MSEDCL sub-division engineers.
 
-### FR-8: Multilingual WhatsApp & SMS Notification Gateway
-- **FR-8.1 Automated Stage Dispatch**: Emits real-time messages on every lifecycle stage change.
-- **FR-8.2 Language Support**: Full message templates rendered in **Marathi (मराठी)**, **Hindi (हिंदी)**, and **English**.
-
----
-
-## 6. Non-Functional Requirements
-
-- **Security & Privacy (DPDP Act 2023)**: MSEDCL consumer numbers and physical addresses are encrypted at rest; public tracker links utilize unguessable random tokens without exposing personal identifiers.
-- **Performance**: Bill OCR and qualification scoring complete in under 1.5 seconds; client bundle initial load &lt; 850ms.
-- **Cross-Platform Responsive Design**: Mobile-first architecture optimized for Android smartphones used by homeowners and surveyors in tier-2/3 Vidarbha markets.
-- **Reliability & Auditability**: Historical quotes, date-effective rules, and status change audit logs are preserved with ISO timestamps.
+### 6.8 Module 8: Multilingual WhatsApp & SMS Dispatcher
+- **FR-8.1 Automated Triggers**: Emits status updates on every milestone transition.
+- **FR-8.2 Localization**: Pre-configured message templates in **Marathi (मराठी)**, **Hindi (हिंदी)**, and **English**.
 
 ---
 
 ## 7. Out-of-Scope Boundaries
 
-1. Direct bot-based filing on the National Subsidy Portal (requires CAPTCHA/Aadhaar OTP; handled manually by liaison staff).
-2. Internal supply-chain procurement and warehouse inventory management.
-3. Live inverter IoT telemetry / string monitoring (delegated to OEM portal).
+The following areas are explicitly excluded from this release:
+1. Automated bot-based submission on the National Subsidy Portal (prohibited by CAPTCHA and Aadhaar OTP verification).
+2. Internal inventory purchasing and ERP warehouse logistics.
+3. Inverter IoT string-level telemetry and live generation monitoring.
