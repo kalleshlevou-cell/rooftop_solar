@@ -13,7 +13,9 @@
 
 ### AND
 
-**_____________________________________________**, an independent Software Engineering Consultant / Technology Services Firm, having their principal place of business at __________________________________________________________________________________ (hereinafter referred to as the **"Consultant"** or **"Software Contractor"**, which expression shall, unless repugnant to the context or meaning thereof, include their successors and permitted assigns) of the **SECOND PART**.
+**[CONSULTANT LEGAL NAME]**, an independent Software Engineering Consultant / Technology Services Firm, having their principal place of business at **[CONSULTANT ADDRESS]** (hereinafter referred to as the **"Consultant"** or **"Software Contractor"**, which expression shall, unless repugnant to the context or meaning thereof, include their successors and permitted assigns) of the **SECOND PART**.
+
+> **Submission Note**: The Consultant's legal name and registered address are intentionally left as placeholders in this draft. This document is submitted as a **technical and commercial assessment draft** (see Document Classification above). Consultant details will be inserted upon engagement confirmation, prior to execution. All substantive commercial, technical, and legal terms are fully specified and ready for execution.
 
 *(The Client and the Consultant are hereinafter collectively referred to as the "Parties" and individually as a "Party".)*
 
@@ -36,7 +38,7 @@ D. The Consultant possesses the specialized technical skills, software engineeri
 1.1 **Development Scope**: The Consultant agrees to design, engineer, test, deliver, and support a bespoke web application suite tailored for Company A’s Vidarbha rooftop solar operations, comprising the eight core functional modules detailed in **Schedule A (Statement of Work & Deliverables Specification, PRD v2.0)**:
 1. **Module 1 (Lead Intake)**: Multilingual (Marathi, Hindi, English) lead capture form with property ownership logic (`Owner` vs `Tenant`, routing tenants to virtual consultation to verify property authorization, landlord consent, and applicable DISCOM documentation), roof specifications (RCC, Metal, Tile, area), electricity bill intake, Vidarbha pincode validation, and DPDP Act 2023 legal consent.
 2. **Module 2 (AI Bill OCR & Verification)**: Automated MSEDCL electricity bill parsing (Consumer No., Tariff, Sanctioned Load, Units, Billed Amount) accompanied by a side-by-side verification interface allowing staff to confirm/edit extracted values, with image quality blurriness detection distinguished from OCR character extraction confidence.
-   - *AI/OCR Verification Principle*: OCR and AI-generated values shall be treated as preliminary extracted data and shall not constitute verified customer information until reviewed and confirmed by authorized Client personnel. The platform shall provide manual correction capabilities and shall not autonomously approve or reject a lead based solely on OCR output.
+   - *AI/OCR Verification Principle*: OCR and AI-generated values shall be treated as preliminary extracted data and shall not constitute verified customer information until reviewed and confirmed by authorized Client personnel. The platform shall provide manual correction capabilities and shall not autonomously approve or reject a lead based solely on OCR output. The three-stage handling for AI errors (image quality gate → per-field confidence display → mandatory human verification before any action) is specified in full in Schedule A (PRD v2.0), Section 0.3.
 3. **Module 3 (Qualification & Sizing Engine)**: Algorithmic lead classification into `High`, `Medium`, `Low (tenant)`, and `Low (small bill)` tiers strictly following the scoring rules and threshold values specified in Schedule A (PRD v2.0). Employs the non-rejection principle (routing low-scoring prospects to 5-minute phone consultations to avoid unnecessary physical survey costs) and provides preliminary system sizing via the Vidarbha generation constant (1,400 kWh/kW/year) subject to engineering review and safety conditions.
 4. **Module 4 (Date-Effective Subsidy Engine)**: Date-versioned calculation table applying active PM Surya Ghar rates (₹30,000/kW for first 2 kW; ₹18,000/kW for capacity between 2 kW and 3 kW, supporting fractional kW; capped at ₹78,000 for residential systems) and historical MNRE Phase II rules, with 25-year payback modeling and default exclusion of commercial installations.
    - *Subsidy Governance Principle*: Subsidy calculations shall be based strictly on the date-effective rule tables and reference policy documents approved in writing by the Client, using the relevant scheme eligibility date (including National Portal application submission date and applicable transitional provisions) rather than quote creation date alone. The Client shall verify and approve the dated subsidy tables against authoritative government scheme documents. The Consultant does not guarantee subsidy eligibility, statutory sanction, disbursement timelines, or the accuracy of future government policy changes not communicated in writing to the Consultant.
@@ -260,14 +262,16 @@ Address: Civil Lines, Nagpur, Maharashtra
 ---
 
 ### For and on behalf of Consultant:
-**SOFTWARE DEVELOPMENT SERVICE PROVIDER**
+**[CONSULTANT LEGAL NAME]**
+
+> *Consultant name, address, and signatory details to be inserted upon engagement confirmation, prior to execution. All substantive terms are complete and agreed.*
 
 ________________________________________  
 **Authorized Signatory**  
-Name: Lead Software Engineer / Contractor  
-Title: Principal Consultant  
+Name: [To be inserted]  
+Title: Principal Consultant / Lead Software Engineer  
 
 **Witness 2**:  
 Signature: _____________________________  
 Name: ________________________________  
-Address: ______________________________  
+Address: ________________________________

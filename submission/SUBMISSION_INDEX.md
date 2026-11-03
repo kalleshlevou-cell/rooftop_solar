@@ -6,44 +6,84 @@
 **Implementation Duration**: 6 Calendar Weeks (42 Calendar Days)  
 **Warranty Period**: 60 Calendar Days Post-Deployment (Commencing on production deployment or within 14 days of M4)  
 **Change Request Rate**: ₹2,500 per developer hour  
-**Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval  
+**Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval
 
 ---
 
-## Deliverables in this Archive:
+## How to Read This Package
 
-### 1. `Draft_Software_Services_Agreement.md` (Master Software Agreement)
-- **Document Classification**: DRAFT FOR TECHNICAL & COMMERCIAL ASSESSMENT (PRE-EXECUTION).
-- **Refined Commercial Terms**: Milestone table with clean separator rows; late payment interest (1.5%/month); day-for-day schedule extensions for client delays; 5-day acceptance testing window with explicit defect remediation SLAs.
-- **Intellectual Property Assignment**: Express assignment of custom code to Client upon full payment, with perpetual licensing of pre-existing tools, open-source warranties, and obligation to execute further confirmatory assignments.
-- **DPDP Act 2023 Allocation**: Clear separation of Data Fiduciary responsibilities (Client) vs technical safeguards (Consultant); 14-day data destruction SLA for local development copies; 24-hour security breach notification window; subcontractor data protection obligations.
-- **Service Level Agreement (SLA)**: 60-Day post-deployment warranty commencing upon production deployment or 14 days post-M4, with defined support hours (09:30–18:30 IST) and response times (Critical: 2h/24h; Major: 4h/48h; Minor: 8h/patch).
-- **Limitation of Liability**: Mutual cap at fees actually paid up to ₹6,00,000, with mutual carve-outs for confidentiality breach, gross negligence/fraud, IP infringement indemnity, and payment obligations.
-- **Five Critical Operational Clauses**:
-  1. *AI/OCR Verification Principle* (Clause 1.1)
-  2. *Subsidy Governance Principle* (Clause 1.1)
-  3. *Simulation Mode Clarification* (Clause 1.1)
-  4. *Change Management Procedure* (Clause 11)
-  5. *Hosting, API & Third-Party Pass-Through Costs* (Clause 12)
-  6. *Source Code Handover & Knowledge Transfer* (Clause 13)
+Start with **PRD.pdf Section 0** (Scope Decisions & Honest Trade-Offs). It answers three questions up front before any requirement detail:
+1. What are we building and what are we not building — and why?
+2. What did we cut from scope, and what is the recommended path for each cut item?
+3. What happens when the AI gets it wrong?
 
-### 2. `PRD_Rooftop_Solar_Platform.md` (Schedule A — PRD v2.0)
-- **Document Status**: Draft for Technical & Commercial Assessment – Pending Client Approval.
-- **Problem Formulation**: Distinctly separates confirmed client inputs from working model assumptions (₹86.88L modeled bleed: potential avoided survey costs + modeled lost margin from 4% of genuine viable leads).
-- **Target Performance KPIs**: Standardized measurement definitions with business-day same-day quote rates, baseline survey rates, and routine status call reductions.
-- **Statutory Alignment & Governance**: Verified PM Surya Ghar rules including fractional kW calculation ($S(P)$ formula up to ₹78,000 cap), residential scope limitation (commercial excluded by default), National Portal eligibility date logic, and DPDP Act 2023 technical safeguards.
-- **Safety Conditions & Token Security**: System sizing safety conditions (consumption-based preliminary capacity with low-consumption advisory below 1 kW, roof feasibility, human review) and high-entropy (≥128-bit) rate-limited public tracking tokens with revocation.
-- **AI/OCR Responsibility & Simulation Clarity**: Normalized 0–100 image quality score distinguishing sharpness from per-field character confidence; confirms OCR values are preliminary until human-reviewed; verifies payment gateway and WhatsApp/SMS operate in simulation mode.
-- **Pricing & DBT Verification Governance**: Reproducible rate cards for gross and net pricing ($Net = Gross - Subsidy$); Stage 8 DBT completion strictly requires verified credit confirmation.
+The rest of the documents provide the supporting detail.
 
-### 3. `Project_Timeline_and_Budget.md` (Schedule B — Timeline Plan v2.0)
-- **Scope Prioritization Framework**: Explicit four-tier classification (Must-Have core, Should-Have enhancements, Simulation-Only demonstrations, Excluded boundaries) protecting the 6-week delivery feasibility.
-- **Work Breakdown Structure (WBS)**: Detailed week-by-week implementation deliverables with explicit technical prerequisites and dependencies (sample bills, rate cards).
-- **Client & Contractor Responsibilities**: Clear delineation of duties (sample bills, rate cards, UAT staff).
-- **Objective Acceptance Criteria**: Standardized verification criteria for each milestone matching Agreement Clause 4.
-- **Milestone Payment Schedule**: 4 milestones of ₹1,50,000 (25% each) with M1 (Architecture & Subsidy), M2 (Lead Intake & OCR), M3 (Qualification, Sizing & Quotation Generator), and M4 (Public Tracker, SLA Dashboard, UAT & Handover) strictly aligned to build sequencing.
-- **Handover Deliverables**: Complete source code Git repository, schemas, API documentation, 14-day DPDP data wipe, and 4 hours of interactive recorded training (Clause 13.2).
-- **Governance**: Full RACI responsibility assignment matrix and risk management plan with day-for-day extension clauses.
+---
 
-### 4. Working Software Implementation:
-- Production React + Node.js + Express platform running live on `http://localhost:5000` with 10 passing automated end-to-end regression tests (`test-e2e.js`).
+## Deliverables in this Package
+
+### 1. `PRD.pdf` — Product Requirements Document (Schedule A, PRD v2.0)
+
+**New in this version**: Section 0 (Scope Decisions & Honest Trade-Offs) was added to the front of the document. It contains:
+- A three-column scope table (problem → solution → what we are NOT building)
+- A full trade-off table of every excluded feature with rationale and recommended path
+- A consolidated "When the AI Gets It Wrong" answer in one place (Section 0.3), covering the three-stage OCR error handling: image quality gate → per-field confidence display → mandatory human verification gate before any action
+- An explicit MoSCoW priority table
+
+The remainder of the PRD covers:
+- Client baseline facts (clearly labelled as supplied by Company A)
+- Financial bleed model with assumptions labelled for operational validation (₹86.88L modeled)
+- Target KPIs with measurement definitions
+- Verified PM Surya Ghar subsidy formula ($S(P)$) and DPDP Act 2023 technical safeguards
+- Full functional requirements for all 8 modules with AI/OCR and subsidy governance principles
+- Out-of-scope boundaries
+
+### 2. `Timeline.pdf` — Project Implementation Timeline, Budget & Governance Plan (Schedule B, v2.0)
+
+Covers:
+- ₹6,00,000 budget breakdown across 4 work packages (25% each), with a note clarifying work-package allocations are internal planning benchmarks — billing is governed by the 4 contractual milestones
+- 6-week dependency map with explicit client input deadlines at each stage
+- Weekly work breakdown with formal acceptance criteria, client responsibilities, and contractor responsibilities for each week
+- Milestone payment schedule (M1–M4, ₹1,50,000 each) with objective acceptance evidence required for each
+- RACI responsibility matrix
+- Risk management table with pre-emptive mitigations
+- **Week 2 updated** to reference PRD Section 0.3 for the full OCR error handling specification
+
+### 3. `Agreement.pdf` — Software Development & Professional Services Agreement (Draft)
+
+**Document Classification**: DRAFT FOR TECHNICAL & COMMERCIAL ASSESSMENT (PRE-EXECUTION)
+
+> **Note on Blank Consultant Fields**: The Consultant's legal name and registered address appear as `[CONSULTANT LEGAL NAME]` and `[CONSULTANT ADDRESS]` throughout this draft. This is intentional — the document is submitted as a pre-execution assessment draft. All substantive commercial, technical, IP, data protection, and legal terms are fully specified. Consultant details will be inserted prior to execution upon engagement confirmation.
+
+Covers:
+- Full 8-module scope of services with AI/OCR Verification Principle, Subsidy Governance Principle, and Simulation Mode Clarification explicitly stated
+- Milestone payment schedule (₹1,50,000 × 4) with 5-day payment terms and 1.5%/month late interest
+- Day-for-day schedule relief for client delays
+- 5-day acceptance window with Critical/Major/Minor defect remediation SLAs
+- IP assignment to Client upon full payment; perpetual license for pre-existing tools; open-source warranty (no copyleft/GPL contamination)
+- DPDP Act 2023 allocation: Client as Data Fiduciary; Consultant implements technical safeguards; 14-day data destruction SLA; 24-hour breach notification
+- 60-day warranty with defined support hours and response times
+- Mutual liability cap at ₹6,00,000 with 5 carve-out exceptions
+- Governing law: India; arbitration seat: Nagpur, Maharashtra
+- Change Order procedure at ₹2,500/hour
+- Third-party infrastructure costs clause (hosting, OCR API, WhatsApp BSP, SMS, SSL — all paid by Client)
+- Source code and credential handover + 4 hours of recorded training
+
+### 4. Working Software Implementation
+
+Production React + Node.js + Express platform with 10 passing automated end-to-end regression tests (`test-e2e.js`), running at `http://localhost:5000`.
+
+---
+
+## Numbers That May Be Questioned in Interview
+
+| Number | Source | Notes |
+| :--- | :--- | :--- |
+| ₹86.88L annual bleed | Derived from client brief assumptions | = ₹26.4L (survey waste) + ₹60.48L (margin loss). Both components labelled as working assumptions pending field validation |
+| 40% unqualified survey rate | Client-supplied assumption | Baseline to be measured during first 30 days of deployment |
+| ₹2,500 per survey | Client-supplied estimate | Surveyor compensation + travel + equipment depreciation |
+| 14 orders/month lost | 4% of 350 genuine leads (modeled) | Not independently observed competitor telemetry — explicitly labelled |
+| ₹78,000 subsidy cap | MNRE notification, Feb 2024 | Verified: ₹30,000/kW × 2 kW + ₹18,000/kW × 1 kW = ₹78,000 maximum |
+| 1,400 kWh/kW/yr | Vidarbha insolation engineering constant | Based on ~5.2–5.6 kWh/m²/day insolation; admin-configurable |
+| ₹6,00,000 fixed fee | Client brief | 4 × ₹1,50,000 milestones |

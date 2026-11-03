@@ -108,7 +108,7 @@ To protect delivery feasibility within the strict 6-week timeframe and ₹6,00,0
   - Trilingual translation framework (Marathi, Hindi, English).
   - Mobile-responsive customer intake form: Owner vs Tenant selector, roof type (RCC, Metal, Tile) and area, bill amount, Vidarbha pincode.
   - AI Bill Reading service extracting consumer number, tariff, connected load, and monthly units.
-  - Side-by-side verification interface allowing human review and manual override directly beside the bill image.
+  - Side-by-side verification interface allowing human review and manual override directly beside the bill image. All three stages of AI error handling are implemented here: (1) image quality gate before extraction runs, (2) per-field confidence display during human review, (3) mandatory human confirmation before any lead action. Full specification in PRD v2.0 Section 0.3.
   - Image quality check warning for blurry/dark uploads (&lt; 60% quality score, distinguished from OCR extraction confidence).
 - **Prerequisites & Dependencies**: Completion of Week 1 schema; provision of 30 sample MSEDCL bills from Vidarbha circles.
 - **Client Responsibilities**: Supply sample bill photos spanning residential circles (Dharampeth, Sadar, Gandhibagh, Laxmi Nagar) and review Marathi/Hindi wording.
