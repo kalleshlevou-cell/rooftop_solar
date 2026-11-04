@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ShieldCheck, Zap, Sun, Calendar, Clock, ArrowRight, CheckCircle2, ChevronRight, BarChart3, Leaf, Layers, DollarSign } from 'lucide-react';
-import { generateQuotePDF } from '../utils/pdfGenerator';
+import { generateQuotePDF, generateAgreementPDF } from '../utils/pdfGenerator';
 import confetti from 'canvas-confetti';
 
 export default function QuoteStoryView({ lead, quote, t, onOpenPayment, onRecalculate }) {
@@ -108,6 +108,18 @@ export default function QuoteStoryView({ lead, quote, t, onOpenPayment, onRecalc
           >
             <Download className="w-4 h-4 text-emerald-600" />
             <span>{t.btnDownloadPdf}</span>
+          </button>
+
+          <button
+            onClick={() => generateAgreementPDF(lead, {
+              ...calcData,
+              id: quote?.id || `QT-${lead?.id?.replace('LD-','')||'30881'}-A`,
+              paymentMilestones: calcData?.paymentMilestones
+            })}
+            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold transition-all shadow-xs"
+          >
+            <Download className="w-4 h-4 text-blue-600" />
+            <span>Download Agreement</span>
           </button>
 
           <button

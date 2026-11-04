@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Shield, LayoutDashboard, FileText, Activity, MessageSquare, Globe, Sparkles } from 'lucide-react';
+import { Sun, Shield, LayoutDashboard, FileText, Activity, MessageSquare, Globe, Sparkles, BarChart3 } from 'lucide-react';
 
 export default function Navbar({ currentRole, setCurrentRole, currentLang, setCurrentLang, t, notifCount = 0, onOpenWhatsApp }) {
   const roles = [
@@ -32,6 +32,12 @@ export default function Navbar({ currentRole, setCurrentRole, currentLang, setCu
       label: t.navCustomerStatus, 
       shortLabel: currentLang === 'mr' ? 'माझी स्थिती' : currentLang === 'hi' ? 'मेरा स्टेटस' : 'Customer Status',
       icon: FileText 
+    },
+    {
+      id: 'analytics',
+      label: 'Analytics Dashboard',
+      shortLabel: currentLang === 'mr' ? 'विश्लेषण' : currentLang === 'hi' ? 'विश्लेषण' : 'Analytics',
+      icon: BarChart3
     }
   ];
 

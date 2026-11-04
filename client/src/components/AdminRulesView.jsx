@@ -255,6 +255,25 @@ export default function AdminRulesView({ subsidyRules = [], pricingConfig = {}, 
                   <span className="text-[11px] font-mono text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
                     ID: {rule.id}
                   </span>
+                  {rule.isActive && (
+                    <button
+                      onClick={async () => {
+                        if (!window.confirm(`Deactivate "${rule.name}"? This will mark it inactive but preserve it for historical quotes.`)) return;
+                        try {
+                          const res = await fetch(`/api/admin/subsidy-rules/${rule.id}`, { method: 'DELETE' });
+                          const data = await res.json();
+                          if (data.success) {
+                            setRules(prev => prev.map(r => r.id === rule.id ? data.rule : r));
+                          }
+                        } catch (err) {
+                          console.error('Error deactivating rule:', err);
+                        }
+                      }}
+                      className="px-3 py-1.5 rounded-xl text-xs font-semibold border border-rose-200 text-rose-700 hover:bg-rose-50 transition-all"
+                    >
+                      Deactivate
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

@@ -493,6 +493,16 @@ class Database {
     return rule;
   }
 
+  deleteSubsidyRule(id) {
+    const idx = this.data.subsidyRules.findIndex(r => r.id === id);
+    if (idx !== -1) {
+      this.data.subsidyRules[idx] = { ...this.data.subsidyRules[idx], isActive: false };
+      this.save();
+      return this.data.subsidyRules[idx];
+    }
+    return null;
+  }
+
   getPricingConfig() { return this.data.pricingConfig; }
   updatePricingConfig(updates) {
     this.data.pricingConfig = { ...this.data.pricingConfig, ...updates };

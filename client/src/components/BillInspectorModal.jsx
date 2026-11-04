@@ -13,6 +13,7 @@ export default function BillInspectorModal({ lead, isOpen, onClose, onConfirmUpd
   const [occupancyType, setOccupancyType] = useState(lead.occupancyType || 'Owner');
   const [maskData, setMaskData] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [reUploadRequested, setReUploadRequested] = useState(false);
 
   const isPoorQuality = ocr.imageQualityScore && ocr.imageQualityScore < 60;
 
@@ -85,12 +86,23 @@ export default function BillInspectorModal({ lead, isOpen, onClose, onConfirmUpd
                 <strong>Low Photo Quality ({ocr.imageQualityScore}% confidence):</strong> Bill photo is blurry or dark. Values below are estimated. Please confirm or re-upload a sharper photo.
               </span>
             </div>
-            <button
-              onClick={() => alert('Re-upload requested! Prompting customer for a sharper photo.')}
-              className="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded-md text-[11px] font-semibold shrink-0 ml-4"
-            >
-              Request Re-Upload
-            </button>
+            <div className="shrink-0 ml-4">
+              <button
+                onClick={() => setReUploadRequested(true)}
+                className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                  reUploadRequested
+                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                    : 'bg-amber-600 hover:bg-amber-700 text-white'
+                }`}
+              >
+                {reUploadRequested ? '✓ Re-upload Requested' : 'Request Re-Upload'}
+              </button>
+              {reUploadRequested && (
+                <p className="mt-2 text-xs text-emerald-700 font-semibold">
+                  ✓ Re-upload request sent. Customer will receive a WhatsApp prompt for a sharper photo.
+                </p>
+              )}
+            </div>
           </div>
         )}
 

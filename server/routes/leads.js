@@ -98,6 +98,24 @@ router.post('/', upload.single('billPhoto'), async (req, res) => {
     const file = req.file;
     const fileName = file ? file.filename : (req.body.sampleBillName || 'standard_bill.jpg');
 
+    // 0. Deduplication check — avoid creating duplicate leads
+    const incomingConsumerNumber = req.body.billData?.consumerNumber || req.body.consumerNumber;
+    const incomingPhone = (phone || '').replace(/\s+/g, '');
+    const existingLeads = db.getLeads();
+    const duplicate = existingLeads.find(l => {
+      const sameConsumer = incomingConsumerNumber && l.consumerNumber === incomingConsumerNumber;
+      const samePhone = incomingPhone && (l.phone || '').replace(/\s+/g, '') === incomingPhone;
+      return sameConsumer || samePhone;
+    });
+    if (duplicate) {
+      return res.status(200).json({
+        success: true,
+        lead: duplicate,
+        isDuplicate: true,
+        notificationSent: { messageText: `[Duplicate] Welcome back ${duplicate.name}! Your existing enquiry ${duplicate.id} is active.` }
+      });
+    }
+
     // 1. Run AI OCR Service on the bill
     const ocrData = await parseElectricityBill({
       fileName,
@@ -124,9 +142,10 @@ router.post('/', upload.single('billPhoto'), async (req, res) => {
       sanctionedLoadKw: ocrData.sanctionedLoadKw
     });
 
-    // 3. Generate Unique Lead ID & Customer Tracking Token
-    const leadCount = db.getLeads().length + 1;
-    const leadId = `LD-309${String(15 + leadCount).padStart(2, '0')}`;
+    // 3. Generate Unique Lead ID & Customer Tracking Token (robust sequential ID)
+    const allLeads = db.getLeads();
+    const seq = String(allLeads.length + 1).padStart(3, '0');
+    const leadId = `LD-30${seq}`;
     const lastNameSlug = (name || 'USER').split(' ').pop().toUpperCase().replace(/[^A-Z]/g, '');
     const trackingToken = `TRK-${lastNameSlug}-${leadId.replace('LD-', '')}`;
 

@@ -62,7 +62,11 @@ export const translations = {
     highScore: 'High Priority (Genuine Buyer)',
     lowTenantScore: 'Low (Tenant - Landlord NOC Required)',
     lowBillScore: 'Low (Small Bill < ₹1,000)',
-    surveySavingsTag: '₹2,500 Survey Cost Saved (Replaced with Phone Call)'
+    surveySavingsTag: '₹2,500 Survey Cost Saved (Replaced with Phone Call)',
+    
+    // Re-engagement
+    reEngagementTitle: 'Your Solar Quote is Waiting',
+    reEngagementMsg: 'Lock in today\'s price before it expires — {kw} kW system with PM Surya Ghar subsidy.'
   },
 
   mr: {
@@ -123,7 +127,11 @@ export const translations = {
     highScore: 'उच्च प्राधान्य (उत्कृष्ट ग्राहक)',
     lowTenantScore: 'कमी (भाडेकरू - एनओसी आवश्यक)',
     lowBillScore: 'कमी (लहान बिल < ₹१,०००)',
-    surveySavingsTag: '₹२,५०० सर्व्हे खर्च वाचवला (फोन कॉलवर वर्ग)'
+    surveySavingsTag: '₹२,५०० सर्व्हे खर्च वाचवला (फोन कॉलवर वर्ग)',
+
+    // Re-engagement
+    reEngagementTitle: 'तुमचे सोलर कोटेशन वाट पाहत आहे',
+    reEngagementMsg: 'कालावधी संपण्यापूर्वी आजचे दर निश्चित करा — {kw} kW सिस्टम PM सूर्य घर सबसिडीसह.'
   },
 
   hi: {
@@ -184,7 +192,11 @@ export const translations = {
     highScore: 'उच्च प्राथमिकता (शीघ्र ग्राहक)',
     lowTenantScore: 'निम्न (किरायेदार - एनओसी आवश्यक)',
     lowBillScore: 'निम्न (छोटा बिल < ₹1,000)',
-    surveySavingsTag: '₹2,500 सर्वे खर्च की बचत (फोन कॉल पर अंतरण)'
+    surveySavingsTag: '₹2,500 सर्वे खर्च की बचत (फोन कॉल पर अंतरण)',
+
+    // Re-engagement
+    reEngagementTitle: 'आपका सोलर कोटेशन प्रतीक्षा में है',
+    reEngagementMsg: 'समय सीमा समाप्त होने से पहले आज की दर पक्की करें — {kw} kW सिस्टम PM सूर्य घर सब्सिडी के साथ.'
   }
 };
 

@@ -67,6 +67,13 @@ export const NOTIFICATION_TEMPLATES = {
     mr: 'मोठा आनंदोत्सव {name}! तुमची केंद्र सरकारची पीएम सूर्य घर सबसिडी ₹{subsidy} थेट तुमच्या बँक खात्यात जमा झाली आहे. प्रकल्प यशस्वीरित्या पूर्ण झाला! {link}',
     hi: 'बधाई {name}! आपकी केंद्र सरकार की पीएम सूर्य घर सब्सिडी ₹{subsidy} आपके बैंक खाते में जमा हो गई है। कंपनी ए के साथ सोलर प्रोजेक्ट सफलतापूर्वक पूरा हुआ! {link}'
   },
+  QUOTE_REENGAGEMENT: {
+    stage: 'SURVEY_COMPLETED',
+    title: 'Re-engagement: Quote Waiting',
+    en: 'Namaste {name}! Your {kw} kW solar quote from Company A, Nagpur is still open. Solar panel prices in Vidarbha have been stable — lock in today\'s rate before the next revision. View your quote here: {link}',
+    mr: 'नमस्कार {name}! कंपनी ए कडून तुमचे {kw} kW सोलर कोटेशन अजूनही उपलब्ध आहे. विदर्भात सोलर पॅनेलचे दर स्थिर आहेत — पुढील बदलापूर्वी आजचे दर निश्चित करा. कोटेशन पहा: {link}',
+    hi: 'नमस्ते {name}! कंपनी ए, नागपुर से आपका {kw} kW सोलर कोटेशन अभी भी उपलब्ध है। विदर्भ में सोलर पैनल दरें स्थिर हैं — अगले बदलाव से पहले आज की दर पक्की करें। कोटेशन देखें: {link}'
+  },
   STUCK_STAGE_REMINDER: {
     stage: 'STUCK_ALERT',
     title: 'Action Required / Stage Stuck Alert',

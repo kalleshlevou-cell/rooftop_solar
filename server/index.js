@@ -8,6 +8,8 @@ import leadsRouter from './routes/leads.js';
 import quotesRouter from './routes/quotes.js';
 import projectsRouter from './routes/projects.js';
 import adminRouter from './routes/admin.js';
+import analyticsRouter from './routes/analytics.js';
+import { startReminderService } from './services/reminderService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,6 +34,7 @@ app.use('/api/leads', leadsRouter);
 app.use('/api/quotes', quotesRouter);
 app.use('/api/projects', projectsRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/analytics', analyticsRouter);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -60,4 +63,5 @@ if (fs.existsSync(clientDist)) {
 
 app.listen(PORT, () => {
   console.log(`Solar ERP Server running at http://localhost:${PORT}`);
+  startReminderService();
 });

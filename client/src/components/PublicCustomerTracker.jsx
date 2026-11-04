@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, CheckCircle2, Clock, MapPin, Zap, ShieldCheck, Award, FileText, Download, Phone, MessageSquare, ArrowRight, Activity, Calendar } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { generateAgreementPDF } from '../utils/pdfGenerator';
+
+const COORDINATOR_PHONE = '917122550000'; // Demo placeholder — replace with real number
 
 export default function PublicCustomerTracker({ trackingToken, leadData, onOpenPayment, t }) {
   const [trackingInfo, setTrackingInfo] = useState(leadData || null);
   const [loading, setLoading] = useState(!leadData);
+  const [toastMsg, setToastMsg] = useState(null);
+
+  const showToast = (msg) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(null), 3500);
+  };
 
   useEffect(() => {
     if (trackingToken) {
@@ -52,8 +61,28 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
 
   const isCompleted = p.currentStatus === 'SUBSIDY_CREDITED';
 
+  const handleDocumentDownload = (doc, index) => {
+    // Agreement PDF (index 1 = "Company A Solar Turnkey Agreement")
+    if (index === 1) {
+      if (p.quote) {
+        generateAgreementPDF(p, p.quote);
+      } else {
+        showToast('Agreement will be available once your quote is confirmed.');
+      }
+      return;
+    }
+    showToast('Document will be available once uploaded by your coordinator');
+  };
+
   return (
     <div className="max-w-3xl mx-auto py-8 px-4 sm:px-6">
+      {/* Toast notification */}
+      {toastMsg && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-slate-800 text-white text-xs font-semibold rounded-2xl shadow-xl">
+          {toastMsg}
+        </div>
+      )}
+
       {/* Mobile-Friendly Customer Portal Card */}
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
         {/* Banner Header */}
@@ -71,7 +100,7 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
-            {p.customerName || 'Prashant Wankhede'}’s Solar Rooftop
+            {p.customerName || 'Prashant Wankhede'}'s Solar Rooftop
           </h1>
           <p className="text-xs text-emerald-100/80 mt-1">
             {p.address || 'Plot 42, Laxmi Nagar, Nagpur 440022'} • MSEDCL Consumer: {p.maskedConsumerNumber || '04901*****31'}
@@ -193,7 +222,7 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
                     </div>
                   </div>
                   <button
-                    onClick={() => alert(`Downloading verified copy of: ${doc.title}`)}
+                    onClick={() => handleDocumentDownload(doc, i)}
                     className="p-1.5 rounded-lg text-slate-500 hover:text-emerald-700 hover:bg-white border border-slate-200"
                     title="Download document"
                   >
@@ -208,7 +237,7 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
           <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
             <span>Project Coordinator: <strong>Sanjay Patil (+91 712 255XXXX)</strong></span>
             <button
-              onClick={() => alert('Connecting to your project coordinator on WhatsApp...')}
+              onClick={() => window.open('https://wa.me/' + COORDINATOR_PHONE, '_blank')}
               className="text-emerald-700 font-bold hover:underline flex items-center space-x-1"
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -220,4 +249,3 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
     </div>
   );
 }
-

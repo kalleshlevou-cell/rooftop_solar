@@ -4,6 +4,7 @@ import { Search, Filter, Phone, MapPin, Eye, FileText, CheckCircle2, AlertCircle
 export default function SalesDesk({ leads = [], metrics = {}, onInspectBill, onViewQuote, onAdvanceStage, t }) {
   const [filterScore, setFilterScore] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const [phoneDialModal, setPhoneDialModal] = useState(null); // { phone, name }
 
   // Filter leads
   const filteredLeads = leads.filter(lead => {
@@ -138,6 +139,16 @@ export default function SalesDesk({ leads = [], metrics = {}, onInspectBill, onV
             High Priority ({leads.filter(l => l.scoreCategory === 'HIGH' || l.score === 'High').length})
           </button>
           <button
+            onClick={() => setFilterScore('MEDIUM')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              filterScore === 'MEDIUM'
+                ? 'bg-orange-600 text-white'
+                : 'bg-orange-50 text-orange-800 hover:bg-orange-100'
+            }`}
+          >
+            Medium ({leads.filter(l => l.scoreCategory === 'MEDIUM').length})
+          </button>
+          <button
             onClick={() => setFilterScore('LOW_TENANT')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterScore === 'LOW_TENANT'
@@ -166,6 +177,7 @@ export default function SalesDesk({ leads = [], metrics = {}, onInspectBill, onV
           const isHigh = lead.scoreCategory === 'HIGH' || lead.score === 'High';
           const isTenant = lead.scoreCategory === 'LOW_TENANT' || lead.score.includes('tenant');
           const isLowBill = lead.scoreCategory === 'LOW_BILL' || lead.score.includes('small bill');
+          const isMedium = lead.scoreCategory === 'MEDIUM';
 
           return (
             <div
@@ -268,9 +280,23 @@ export default function SalesDesk({ leads = [], metrics = {}, onInspectBill, onV
                     </button>
                   )}
 
+                  {isMedium && (
+                    <button
+                      onClick={() => onAdvanceStage(
+                        lead.id,
+                        'SURVEY_SCHEDULED',
+                        'Standard survey scheduled within 48 hours. Customer to be contacted by surveyor coordinator.'
+                      )}
+                      className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-semibold"
+                    >
+                      <Calendar className="w-3 h-3" />
+                      <span>Schedule Standard Survey</span>
+                    </button>
+                  )}
+
                   {(isTenant || isLowBill) && (
                     <button
-                      onClick={() => alert(`Dialing ${lead.phone} for 5-minute phone consultation. Surveyor visit bypassed.`)}
+                      onClick={() => setPhoneDialModal({ phone: lead.phone, name: lead.name })}
                       className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-semibold"
                     >
                       <Phone className="w-3 h-3" />
@@ -289,6 +315,34 @@ export default function SalesDesk({ leads = [], metrics = {}, onInspectBill, onV
           </div>
         )}
       </div>
+
+      {/* Phone Dial Modal */}
+      {phoneDialModal && (
+        <div className="fixed inset-0 z-50 bg-slate-900/50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-xl border border-slate-200">
+            <h3 className="font-bold text-slate-900 text-base mb-1">5-Min Phone Consultation</h3>
+            <p className="text-xs text-slate-500 mb-4">{phoneDialModal.name}</p>
+            <div className="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200 mb-4">
+              <Phone className="w-5 h-5 text-emerald-600 shrink-0" />
+              <span className="font-mono font-bold text-slate-900 text-sm select-all">{phoneDialModal.phone}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => { navigator.clipboard?.writeText(phoneDialModal.phone); }}
+                className="flex-1 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                Copy Number
+              </button>
+              <button
+                onClick={() => setPhoneDialModal(null)}
+                className="flex-1 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

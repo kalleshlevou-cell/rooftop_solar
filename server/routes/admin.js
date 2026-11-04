@@ -60,6 +60,13 @@ router.put('/subsidy-rules/:id', (req, res) => {
   res.json({ success: true, rule: updated });
 });
 
+// DELETE (deactivate) subsidy rule — soft-delete, preserves historical quotes
+router.delete('/subsidy-rules/:id', (req, res) => {
+  const deactivated = db.deleteSubsidyRule(req.params.id);
+  if (!deactivated) return res.status(404).json({ success: false, error: 'Rule not found' });
+  res.json({ success: true, rule: deactivated, message: 'Rule deactivated (preserved for historical quotes)' });
+});
+
 // GET pricing & engineering configuration
 router.get('/pricing', (req, res) => {
   const pricing = db.getPricingConfig();

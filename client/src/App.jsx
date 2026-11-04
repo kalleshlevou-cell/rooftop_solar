@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
+import { CheckCircle2 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import HomeownerForm from './components/HomeownerForm';
 import BillInspectorModal from './components/BillInspectorModal';
@@ -9,10 +11,42 @@ import PublicCustomerTracker from './components/PublicCustomerTracker';
 import AdminRulesView from './components/AdminRulesView';
 import WhatsAppSimulatorModal from './components/WhatsAppSimulatorModal';
 import MockPaymentModal from './components/MockPaymentModal';
+import AnalyticsDashboard from './components/AnalyticsDashboard';
 import { translations } from './i18n/translations';
 
-export default function App() {
-  const [currentRole, setCurrentRole] = useState('homeowner'); // 'homeowner' | 'sales' | 'pipeline' | 'admin' | 'tracker' | 'quote'
+// Standalone tracker wrapper used by /track/:token route
+function StandaloneTracker() {
+  const { token } = useParams();
+  const [paymentLead, setPaymentLead] = useState(null);
+  const [paymentAmount, setPaymentAmount] = useState(10200);
+  const t = translations.en;
+
+  return (
+    <>
+      <PublicCustomerTracker
+        trackingToken={token}
+        leadData={null}
+        t={t}
+        onOpenPayment={(amt) => {
+          setPaymentAmount(amt);
+        }}
+      />
+      {paymentLead && (
+        <MockPaymentModal
+          lead={paymentLead}
+          amount={paymentAmount}
+          isOpen={!!paymentLead}
+          onClose={() => setPaymentLead(null)}
+          onPaymentSuccess={() => setPaymentLead(null)}
+        />
+      )}
+    </>
+  );
+}
+
+// Main app shell component
+function MainShell() {
+  const [currentRole, setCurrentRole] = useState('homeowner'); // 'homeowner' | 'sales' | 'pipeline' | 'admin' | 'tracker' | 'quote' | 'analytics'
   const [currentLang, setCurrentLang] = useState('en');
   const t = translations[currentLang] || translations.en;
 
@@ -35,6 +69,9 @@ export default function App() {
   const [paymentLead, setPaymentLead] = useState(null);
   const [paymentAmount, setPaymentAmount] = useState(10200);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Duplicate banner state
+  const [duplicateBanner, setDuplicateBanner] = useState(null);
 
   // Load initial backend data
   const loadLeads = async () => {
@@ -92,6 +129,22 @@ export default function App() {
     loadAdminConfig();
   }, []);
 
+  // Helper to fetch and set active quote for a lead
+  const fetchAndSetQuote = async (lead) => {
+    if (lead && lead.quoteId) {
+      try {
+        const qRes = await fetch(`/api/quotes/${lead.quoteId}`);
+        const qData = await qRes.json();
+        if (qData.success) {
+          setActiveQuote(qData.quote);
+        }
+      } catch (qErr) {
+        console.error('Error loading saved quote:', qErr);
+        // Fall through — QuoteStoryView will recalculate via its own useEffect
+      }
+    }
+  };
+
   // Form Submit Handler
   const handleSubmitLead = async (formData) => {
     setIsAnalyzing(true);
@@ -111,13 +164,20 @@ export default function App() {
       const data = await res.json();
 
       if (data.success) {
-        setSelectedLead(data.lead);
-        await loadLeads();
-        await loadProjects();
-        await loadAdminConfig();
+        if (data.isDuplicate) {
+          // Duplicate lead found — show welcome back banner
+          setSelectedLead(data.lead);
+          await loadLeads();
+          setDuplicateBanner(data.lead);
+        } else {
+          setSelectedLead(data.lead);
+          await loadLeads();
+          await loadProjects();
+          await loadAdminConfig();
 
-        // Show side-by-side verification modal or jump to quote
-        setInspectingLead(data.lead);
+          // Show side-by-side verification modal or jump to quote
+          setInspectingLead(data.lead);
+        }
       }
     } catch (err) {
       console.error('Error submitting lead:', err);
@@ -139,6 +199,8 @@ export default function App() {
       if (data.success) {
         setSelectedLead(data.lead);
         await loadLeads();
+        // Bug B1: Load saved quote before transitioning to quote view
+        await fetchAndSetQuote(data.lead);
         // Transition to Quote View!
         setCurrentRole('quote');
       }
@@ -247,6 +309,21 @@ export default function App() {
 
       {/* Main Role Content Views with comfortable spacing */}
       <main className="flex-1 pb-20 pt-4 sm:pt-6">
+        {/* Duplicate lead welcome-back banner */}
+        {duplicateBanner && (
+          <div className="max-w-4xl mx-auto mt-4 px-4">
+            <div className="flex items-center justify-between p-4 bg-emerald-50 border border-emerald-300 rounded-2xl text-sm">
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <span className="font-semibold text-emerald-900">
+                  Welcome back! We found your existing enquiry ({duplicateBanner.id} – {duplicateBanner.name}).
+                </span>
+              </div>
+              <button onClick={() => setDuplicateBanner(null)} className="text-emerald-600 hover:text-emerald-800 text-xs font-bold">Dismiss</button>
+            </div>
+          </div>
+        )}
+
         {currentRole === 'homeowner' && (
           <HomeownerForm
             t={t}
@@ -273,8 +350,9 @@ export default function App() {
             metrics={metrics}
             t={t}
             onInspectBill={(lead) => setInspectingLead(lead)}
-            onViewQuote={(lead) => {
+            onViewQuote={async (lead) => {
               setSelectedLead(lead);
+              await fetchAndSetQuote(lead);
               setCurrentRole('quote');
             }}
             onAdvanceStage={handleAdvanceStage}
@@ -314,6 +392,10 @@ export default function App() {
             onUpdatePricing={handleUpdatePricing}
             onAddSubsidyRule={handleAddSubsidyRule}
           />
+        )}
+
+        {currentRole === 'analytics' && (
+          <AnalyticsDashboard t={t} />
         )}
       </main>
 
@@ -360,5 +442,14 @@ export default function App() {
         }}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/track/:token" element={<StandaloneTracker />} />
+      <Route path="/*" element={<MainShell />} />
+    </Routes>
   );
 }

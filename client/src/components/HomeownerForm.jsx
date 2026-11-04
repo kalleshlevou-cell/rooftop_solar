@@ -5,6 +5,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
   const [occupancyType, setOccupancyType] = useState('Owner');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [monthlyBill, setMonthlyBill] = useState(3200);
   const [avgUnits, setAvgUnits] = useState(340);
   const [roofType, setRoofType] = useState('Concrete Flat');
@@ -45,6 +46,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
     if (sampleType === 'prashant') {
       setName('Prashant Wankhede');
       setPhone('+91 98230 44102');
+      setEmail('prashant.wankhede@gmail.com');
       setOccupancyType('Owner');
       setMonthlyBill(3200);
       setAvgUnits(340);
@@ -56,6 +58,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
     } else if (sampleType === 'rohit') {
       setName('Rohit Meshram');
       setPhone('+91 94221 88319');
+      setEmail('rohit.meshram@outlook.com');
       setOccupancyType('Tenant');
       setMonthlyBill(1900);
       setAvgUnits(210);
@@ -67,6 +70,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
     } else if (sampleType === 'ayesha') {
       setName('Ayesha Siddiqui');
       setPhone('+91 98902 12948');
+      setEmail('ayesha.siddiqui@rediffmail.com');
       setOccupancyType('Owner');
       setMonthlyBill(650);
       setAvgUnits(85);
@@ -78,6 +82,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
     } else if (sampleType === 'blurry') {
       setName('Devendra Joshi (Test Blurry Photo)');
       setPhone('+91 99220 11099');
+      setEmail('');
       setOccupancyType('Owner');
       setMonthlyBill(2400);
       setAvgUnits(260);
@@ -99,6 +104,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
     const payload = {
       name: name || 'Vidarbha Homeowner',
       phone: phone || '+91 98230 00000',
+      email,
       occupancyType,
       monthlyBill: Number(monthlyBill),
       avgUnits: Number(avgUnits),
@@ -316,7 +322,7 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
             <label className="block text-sm font-bold text-slate-900 mb-3">
               4. Contact & Address
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-600 mb-1">Full Name</label>
                 <input
@@ -334,6 +340,16 @@ export default function HomeownerForm({ t, onSubmitLead, onSelectSample, isAnaly
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 98230 XXXXX"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 mb-1">Email Address (Optional)</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="e.g. name@gmail.com"
                   className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
                 />
               </div>
