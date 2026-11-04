@@ -5,6 +5,9 @@ const REMINDER_INTERVAL_MS = 60 * 60 * 1000; // Run every hour
 const TRIGGER_DAYS_WITHOUT_PAYMENT = 5; // Days after SURVEY_COMPLETED with no advance
 const MIN_REMINDER_GAP_MS = 48 * 60 * 60 * 1000; // Min 48h between reminders per lead
 
+// Use BASE_URL env var so deployed environments don't produce broken localhost links (Finding 3)
+const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
+
 export function startReminderService() {
   console.log('[ReminderService] Quote re-engagement service started (hourly scan)');
   setInterval(scanAndSendReminders, REMINDER_INTERVAL_MS);
@@ -42,7 +45,7 @@ function scanAndSendReminders() {
     const notif = formatNotification('QUOTE_REENGAGEMENT', {
       name: lead.name,
       kw: lead.recommendedKw || 3,
-      link: `http://localhost:5173/track/${lead.trackingToken}`
+      link: `${BASE_URL}/track/${lead.trackingToken}`
     }, lang);
     notif.leadId = lead.id;
     db.addNotification(notif);

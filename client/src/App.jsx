@@ -19,6 +19,8 @@ function StandaloneTracker() {
   const { token } = useParams();
   const [paymentLead, setPaymentLead] = useState(null);
   const [paymentAmount, setPaymentAmount] = useState(10200);
+  // trackingInfo is set by PublicCustomerTracker once it fetches project data
+  const [trackingInfo, setTrackingInfo] = useState(null);
   const t = translations.en;
 
   return (
@@ -27,9 +29,12 @@ function StandaloneTracker() {
         trackingToken={token}
         leadData={null}
         t={t}
-        onOpenPayment={(amt) => {
+        onOpenPayment={(amt, info) => {
+          // info is the fetched project/lead object passed back from PublicCustomerTracker
           setPaymentAmount(amt);
+          setPaymentLead(info || { id: token, trackingToken: token }); // Finding 2: must set paymentLead to open modal
         }}
+        onTrackingLoaded={(info) => setTrackingInfo(info)}
       />
       {paymentLead && (
         <MockPaymentModal

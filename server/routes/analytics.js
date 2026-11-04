@@ -1,6 +1,9 @@
 import express from 'express';
 import { db } from '../data/db.js';
 
+// TODO: add auth middleware when auth system is implemented app-wide.
+// GET /api/analytics returns business-sensitive metrics; it is currently unprotected,
+// consistent with the rest of this API (which has no auth anywhere in this MVP).
 const router = express.Router();
 
 router.get('/', (req, res) => {

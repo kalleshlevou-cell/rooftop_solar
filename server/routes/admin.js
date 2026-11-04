@@ -61,6 +61,9 @@ router.put('/subsidy-rules/:id', (req, res) => {
 });
 
 // DELETE (deactivate) subsidy rule — soft-delete, preserves historical quotes
+// TODO: add auth middleware when auth system is implemented app-wide.
+// Soft-deleting a rule stops it applying to all future quotes (pricing consequence).
+// Currently unprotected, consistent with all other admin routes in this MVP.
 router.delete('/subsidy-rules/:id', (req, res) => {
   const deactivated = db.deleteSubsidyRule(req.params.id);
   if (!deactivated) return res.status(404).json({ success: false, error: 'Rule not found' });

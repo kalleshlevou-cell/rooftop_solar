@@ -185,7 +185,7 @@ export default function PublicCustomerTracker({ trackingToken, leadData, onOpenP
                         {step.key === 'QUOTE_APPROVED' && (
                           <div className="pt-2">
                             <button
-                              onClick={() => onOpenPayment(10200)}
+                              onClick={() => onOpenPayment(10200, p)}
                               className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center space-x-1.5"
                             >
                               <span>Pay 10% Booking Advance (₹10,200)</span>

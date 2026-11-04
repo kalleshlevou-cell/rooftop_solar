@@ -99,10 +99,11 @@ router.post('/', upload.single('billPhoto'), async (req, res) => {
     const fileName = file ? file.filename : (req.body.sampleBillName || 'standard_bill.jpg');
 
     // 0. Deduplication check — avoid creating duplicate leads
+    // Snapshot all leads once and reuse below (avoids TOCTOU: Finding 6)
+    const allLeadsSnapshot = db.getLeads();
     const incomingConsumerNumber = req.body.billData?.consumerNumber || req.body.consumerNumber;
     const incomingPhone = (phone || '').replace(/\s+/g, '');
-    const existingLeads = db.getLeads();
-    const duplicate = existingLeads.find(l => {
+    const duplicate = allLeadsSnapshot.find(l => {
       const sameConsumer = incomingConsumerNumber && l.consumerNumber === incomingConsumerNumber;
       const samePhone = incomingPhone && (l.phone || '').replace(/\s+/g, '') === incomingPhone;
       return sameConsumer || samePhone;
@@ -142,10 +143,13 @@ router.post('/', upload.single('billPhoto'), async (req, res) => {
       sanctionedLoadKw: ocrData.sanctionedLoadKw
     });
 
-    // 3. Generate Unique Lead ID & Customer Tracking Token (robust sequential ID)
-    const allLeads = db.getLeads();
-    const seq = String(allLeads.length + 1).padStart(3, '0');
-    const leadId = `LD-30${seq}`;
+    // 3. Generate Unique Lead ID & Customer Tracking Token
+    // Derive next ID from the highest existing numeric suffix to avoid collisions with seed data (Finding 1)
+    const maxNum = allLeadsSnapshot.reduce((max, l) => {
+      const n = parseInt((l.id || '').replace('LD-', ''), 10);
+      return isNaN(n) ? max : Math.max(max, n);
+    }, 0);
+    const leadId = `LD-${maxNum + 1}`;
     const lastNameSlug = (name || 'USER').split(' ').pop().toUpperCase().replace(/[^A-Z]/g, '');
     const trackingToken = `TRK-${lastNameSlug}-${leadId.replace('LD-', '')}`;
 
